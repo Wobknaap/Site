@@ -1,0 +1,70 @@
+{
+  "articles": [
+    {
+      "slug": "wie-bestuurt-jouw-tijdlijn",
+      "date": "15 augustus 2026",
+      "type": "Essay",
+      "title": "Wie bestuurt jouw tijdlijn?",
+      "excerpt": "We mogen alles aanpassen aan onze telefoon, behalve het algoritme dat bepaalt wat we erop zien.",
+      "reading": "8 minuten",
+      "body": "Er bestaat een opmerkelijke grens aan digitale keuzevrijheid. We kunnen bepalen welke kleur onze app heeft, wie ons mag volgen en hoe laat een melding verschijnt. Maar de machine die beslist wat we daadwerkelijk zien, blijft grotendeels buiten bereik.\n\nDat is geen technisch toeval. Een tijdlijn die je zelf werkelijk kunt sturen, maakt ook zichtbaar welke keuzes een platform nu voor je maakt. Controle over de volgorde betekent controle over aandacht, en aandacht is precies het product dat platforms liever niet uit handen geven.\n\nDit is placeholdertekst voor een essay over aanbevelingsalgoritmes, autonomie en de vraag waarom personalisatie bijna altijd van bovenaf wordt aangeboden.",
+      "status": "published",
+      "source": "Eigen site",
+      "sourceUrl": "",
+      "coverImage": "",
+      "editorialNote": ""
+    },
+    {
+      "slug": "hoeveel-macht-past-er-in-een-mens",
+      "date": "2 augustus 2026",
+      "type": "Essay",
+      "title": "Hoeveel invloed heeft één wereldleider?",
+      "excerpt": "Over de verhouding tussen individuele leiders, instituties en politieke besluitvorming.",
+      "reading": "11 minuten",
+      "body": "De invloed van politieke leiders wordt vaak persoonlijk voorgesteld. Besluiten ontstaan echter ook binnen instituties, kabinetten, parlementen, markten en internationale afspraken.\n\nDat maakt het lastig om vast te stellen hoeveel verschil één persoon werkelijk maakt. Sommige leiders verleggen beleid, terwijl anderen vooral richting geven aan processen die al liepen.\n\nDit is placeholdertekst voor een essay over leiderschap, instituties en politieke verantwoordelijkheid.",
+      "status": "published",
+      "source": "Eigen site",
+      "sourceUrl": "",
+      "coverImage": "",
+      "editorialNote": ""
+    },
+    {
+      "slug": "open-source-maar-voor-wie",
+      "date": "24 juli 2026",
+      "type": "Analyse",
+      "title": "Open source, maar voor wie?",
+      "excerpt": "Een open model is niet automatisch begrijpelijk, toegankelijk of onschuldig. Wat wordt er eigenlijk geopend?",
+      "reading": "7 minuten",
+      "body": "Bij AI wordt open source gebruikt voor verschillende dingen: openbare code, downloadbare modelgewichten, gedeelde trainingsdata of simpelweg een gratis product. Dat maakt de term aantrekkelijk en verwarrend tegelijk.\n\nOpenheid kan macht spreiden, onderzoek versnellen en afhankelijkheid verminderen. Maar een model van tientallen miljarden parameters is niet ineens toegankelijk omdat je het mag downloaden.\n\nDit is placeholdertekst voor een heldere uitleg van open AI-modellen, zonder technische mist of ideologische borstklopperij.",
+      "status": "published",
+      "source": "Eigen site",
+      "sourceUrl": "",
+      "coverImage": "",
+      "editorialNote": ""
+    },
+    {
+      "slug": "eindhoven-is-geen-campus",
+      "date": "9 juli 2026",
+      "type": "Column",
+      "title": "Eindhoven is geen campus",
+      "excerpt": "Een studentenstad is meer dan een verzameling bedden op fietsafstand van een collegezaal.",
+      "reading": "4 minuten",
+      "body": "Studenten huisvesten en een studentenstad bouwen zijn niet hetzelfde. Het eerste kun je meten in aantallen bedden. Het tweede zit in verenigingen, cafés, cultuur, betaalbare ruimte en de toevallige ontmoetingen die een stad jong houden.\n\nWie alleen naar reistijd en vierkante meters kijkt, behandelt studenten als tijdelijke forenzen. Daarmee verdwijnt precies wat Eindhoven zegt te willen aantrekken: mensen die zich aan de stad verbinden.\n\nDit is placeholdertekst voor een korte column over wonen, verenigingen en de stad als gemeenschap.",
+      "status": "published",
+      "source": "Eigen site",
+      "sourceUrl": "",
+      "coverImage": "",
+      "editorialNote": ""
+    }
+  ],
+  "notes": [
+    { "id": "note-2026-08-09", "date": "9 augustus 2026", "text": "Artikelidee: waarom gebruikers hun aanbevelingsalgoritme nauwelijks zelf kunnen instellen." },
+    { "id": "note-2026-08-07", "date": "7 augustus 2026", "text": "Uitzoeken hoe verschillende AI-bedrijven het begrip open source gebruiken." },
+    { "id": "note-2026-08-03", "date": "3 augustus 2026", "text": "Voorbeeld verzamelen van teksten die door veelvuldig AI-gebruik steeds meer op elkaar gaan lijken." },
+    { "id": "note-2026-07-29", "date": "29 juli 2026", "text": "Essayopzet over de feitelijke invloed van individuele wereldleiders." },
+    { "id": "note-2026-07-21", "date": "21 juli 2026", "text": "Columnidee: het verschil tussen studenten huisvesten en een studentenstad ontwikkelen." },
+    { "id": "note-2026-07-14", "date": "14 juli 2026", "text": "Nagaan welke keuzes aanbevelingssystemen standaard voor gebruikers maken." },
+    { "id": "note-2026-07-02", "date": "2 juli 2026", "text": "Notitie voor een stuk over meetbare resultaten en moeilijk meetbare publieke waarde." },
+    { "id": "note-2026-06-18", "date": "18 juni 2026", "text": "Titels van oudere columns nalopen en waar nodig concreter maken." }
+  ]
+}

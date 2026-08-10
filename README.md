@@ -2,6 +2,14 @@
 
 Persoonlijke site voor artikelen, columns en notities. De site bevat een lokaal contentbeheer en heeft geen database of apart CMS-account nodig.
 
+## Online site
+
+De publieke versie wordt na elke wijziging op `main` automatisch gebouwd en gepubliceerd met GitHub Pages. Alleen Start, Artikelen, Notities en Over mij gaan online. `/beheer` is bewust niet aanwezig in de publieke build.
+
+Zonder eigen domein is het adres:
+
+`https://wobknaap.github.io/Site/`
+
 ## Lokaal starten
 
 Benodigd:
@@ -20,6 +28,8 @@ Open daarna:
 
 - Site: `http://localhost:5173`
 - Contentbeheer: `http://localhost:5173/beheer`
+
+Gebruik het beheer alleen lokaal. Conceptartikelen en redactienotities horen niet in de publieke contentversie.
 
 ## Content beheren
 
@@ -77,6 +87,12 @@ Afbeeldingen plaats je in `public/images`. Vul in het beheer vervolgens bijvoorb
 
 ```bash
 npm run build
+```
+
+De GitHub Pages-versie lokaal bouwen:
+
+```bash
+npm run build:pages
 ```
 
 De meegeleverde productiecontrole gebruikt Bash. Op Windows werkt dit via WSL of Git Bash. Voor lokaal schrijven en vormgeven is alleen `npm run dev` nodig.
