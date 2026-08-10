@@ -19,14 +19,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Repository ophalen
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: GitHub Pages instellen
         id: pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
       - name: Node instellen
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 22
+          package-manager-cache: false
       - name: Publieke site bouwen
         run: node scripts/build-pages.mjs
         env:
