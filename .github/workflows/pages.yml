@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: Repository ophalen
         uses: actions/checkout@v5
+        with:
+          persist-credentials: false
       - name: GitHub Pages instellen
         id: pages
         uses: actions/configure-pages@v6
@@ -28,6 +30,8 @@ jobs:
         with:
           node-version: 22
           package-manager-cache: false
+      - name: Openbare inhoud controleren
+        run: npm run validate:public
       - name: Publieke site bouwen
         run: node scripts/build-pages.mjs
         env:

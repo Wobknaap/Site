@@ -63,6 +63,8 @@ function layout({ title, description, active, body }) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="${escapeHtml(description)}">
   <meta name="theme-color" content="#264534">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; connect-src 'none'; frame-src 'none'; script-src 'none'">
   <title>${escapeHtml(title)}</title>
   <link rel="icon" href="${href("/favicon.svg")}">
   <link rel="stylesheet" href="${href("/assets/site.css")}">
@@ -101,12 +103,12 @@ await cp(path.join(projectRoot, "public/favicon.svg"), path.join(outputRoot, "fa
 
 const sourceCss = await readFile(path.join(projectRoot, "app/globals.css"), "utf8");
 const staticCss = sourceCss
-  .replace('@import "tailwindcss";\n\n', "")
+  .replace(/\/\* manager:start \*\/[\s\S]*?\/\* manager:end \*\//g, "")
   .replaceAll("var(--font-geist-sans)", "Arial, sans-serif")
   .replaceAll("var(--font-geist-mono)", '"Courier New", monospace');
 await writeFile(path.join(outputRoot, "assets/site.css"), staticCss);
 await writeFile(path.join(outputRoot, ".nojekyll"), "");
-await writeFile(path.join(outputRoot, "robots.txt"), "User-agent: *\nAllow: /\n");
+await writeFile(path.join(outputRoot, "robots.txt"), `User-agent: *\nAllow: ${href("/")}\nDisallow: ${href("/beheer/")}\n`);
 
 await writeRoute("/", layout({
   title: "Wob Knaap · Columns, essays en notities",

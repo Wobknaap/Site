@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/.npm-cache/
 /.pnp
 .pnp.*
 .yarn/*
@@ -40,3 +41,13 @@ next-env.d.ts
 /.sites-runtime/
 /outputs/
 /work/
+/docs/
+/.openai/
+/.vinext/
+/private/
+/drafts/
+*.local.json
+*.private.json
+*.key
+*.p12
+*.pfx

@@ -1,14 +1,26 @@
 # Wob Knaap
 
-Persoonlijke site voor artikelen, columns en notities. De site bevat een lokaal contentbeheer en heeft geen database of apart CMS-account nodig.
+Persoonlijke site voor artikelen, columns en notities. De openbare site wordt statisch gebouwd en bevat geen database, accountsysteem of openbaar contentbeheer.
 
 ## Online site
 
-De publieke versie wordt na elke wijziging op `main` automatisch gebouwd en gepubliceerd met GitHub Pages. Alleen Start, Artikelen, Notities en Over mij gaan online. `/beheer` is bewust niet aanwezig in de publieke build.
+GitHub Pages publiceert na iedere wijziging op `main` alleen deze onderdelen:
 
-Zonder eigen domein is het adres:
+- Start
+- Artikelen
+- Notities
+- Over mij
 
-`https://wobknaap.github.io/Site/`
+Het uiteindelijke adres is `https://wobknaap.github.io/Site/`.
+
+## Veiligheidsopzet
+
+- `/beheer` wordt nooit in de GitHub Pages-build opgenomen.
+- Een Next.js-productiebouw geeft op `/beheer` altijd een 404.
+- `app/content-data.json` mag alleen openbare artikelen en openbare notities bevatten.
+- Concepten, redactienotities, lokale JSON-bestanden en geheime configuratie worden door Git genegeerd.
+- De workflow controleert de repository voor iedere publicatie op conceptstatussen, redactienotities, privébestanden en herkenbare geheimen.
+- De openbare HTML gebruikt geen JavaScript en heeft een strikte Content Security Policy.
 
 ## Lokaal starten
 
@@ -17,8 +29,6 @@ Benodigd:
 - Node.js 22 of nieuwer
 - npm
 
-Open de projectmap in Cursor of een terminal en voer uit:
-
 ```bash
 npm install
 npm run dev
@@ -26,73 +36,36 @@ npm run dev
 
 Open daarna:
 
-- Site: `http://localhost:5173`
-- Contentbeheer: `http://localhost:5173/beheer`
+- Site: `http://localhost:3000`
+- Lokaal contentbeheer: `http://localhost:3000/beheer`
 
-Gebruik het beheer alleen lokaal. Conceptartikelen en redactienotities horen niet in de publieke contentversie.
+Het beheer werkt alleen tijdens `npm run dev`.
 
-## Content beheren
+## Openbare content beheren
 
-Alle content staat in `app/content-data.json`.
+De openbare content staat in `app/content-data.json`. Een artikel kan alleen gepubliceerd worden wanneer:
 
-1. Open `/beheer`.
-2. Klik op `Contentbestand openen`.
-3. Selecteer `app/content-data.json` uit deze projectmap.
-4. Pas artikelen of notities aan.
-5. Klik op `Opslaan`.
+- de status `published` is;
+- titel, omschrijving en artikeltekst zijn ingevuld;
+- `editorialNote` leeg is;
+- een eventueel afbeeldingspad onder `/images/` valt.
 
-De lokale site ververst na het opslaan automatisch. Als de browser geen directe bestandstoegang ondersteunt, downloadt het beheer een nieuw `content-data.json`. Vervang dan handmatig het bestand in de map `app`.
-
-Het beheer bewaart een tijdelijke werksessie in de browser. Dit voorkomt dat tekst verdwijnt als je de pagina per ongeluk ververst. De projectversie verandert pas wanneer je het JSON-bestand opslaat.
-
-## Artikelstatussen
-
-- `Concept`: alleen zichtbaar in het beheer.
-- `Online op eigen site`: krijgt een eigen artikelpagina.
-- `Externe publicatie`: verschijnt in het archief en verwijst naar de bronlink.
-
-De Cursor-items `Expeditie Roermond` en `Het label dat afschrikt` staan al in het beheer. De exacte links ontbreken nog. Zodra je die invult, verschijnen ze in het openbare archief.
-
-De volgende DAW-publicaties staan als herschrijfconcept klaar, inclusief bronlink:
-
-- De incognito-knop: de geheime superpower van LLM's
-- Van typen naar denken: hoe praat jij straks met AI?
-- Worden we werkloos door AI? De O-ringparadox en de toekomst van werk
-
-## Artikelen schrijven
-
-De artikeltekst ondersteunt Markdown. Bijvoorbeeld:
-
-```markdown
-## Tussenkop
-
-Een gewone alinea met een [link](https://example.com).
-
-> Een citaat of kernpassage.
-
-- Eerste punt
-- Tweede punt
-```
-
-Afbeeldingen plaats je in `public/images`. Vul in het beheer vervolgens bijvoorbeeld `/images/mijn-afbeelding.webp` in bij `Afbeelding`.
-
-## Belangrijke bestanden
-
-- `app/content-data.json`: artikelen en notities
-- `app/beheer`: het contentbeheer
-- `app/globals.css`: vormgeving
-- `public/images`: afbeeldingen
-
-## Productiecontrole
+Controleer de inhoud met:
 
 ```bash
-npm run build
+npm run validate:public
 ```
 
-De GitHub Pages-versie lokaal bouwen:
+## Concepten lokaal bewaren
+
+Bewaar concepten bijvoorbeeld in `private/content-data.json` of in een bestand dat eindigt op `.private.json` of `.local.json`. Deze bestanden worden niet door Git meegenomen.
+
+Open zo'n bestand via het lokale contentbeheer. Kopieer pas een afgerond artikel naar `app/content-data.json` wanneer het gepubliceerd mag worden.
+
+## GitHub Pages-versie bouwen
 
 ```bash
 npm run build:pages
 ```
 
-De meegeleverde productiecontrole gebruikt Bash. Op Windows werkt dit via WSL of Git Bash. Voor lokaal schrijven en vormgeven is alleen `npm run dev` nodig.
+De statische bestanden komen in `docs/`. Deze map is gegenereerd en wordt niet in Git bewaard; GitHub Actions bouwt hem opnieuw bij publicatie.

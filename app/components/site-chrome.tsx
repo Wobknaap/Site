@@ -24,7 +24,7 @@ export function SiteFooter() {
   return (
     <footer className="site-footer">
       <p>Wob Knaap · Eindhoven · 2026</p>
-      <div><a href="mailto:wob@example.com">Mail</a><a href="#top">Naar boven ↑</a></div>
+      <div><a href="#top">Naar boven ↑</a></div>
     </footer>
   );
 }

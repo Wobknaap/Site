@@ -19,7 +19,6 @@ export default function AboutPage() {
             <p>Op deze site verzamel ik mijn columns, essays en notities. De onderwerpen lopen uiteen van AI en digitale platforms tot studentenbeleid en Eindhoven.</p>
             <p>Daarnaast ontwikkel en geef ik workshops over praktische toepassingen van AI.</p>
           </div>
-          <a className="underlined-link" href="mailto:wob@example.com">Neem contact op ↗</a>
         </div>
         <figure>
           <img src="/images/writing-desk.webp" alt="Een rustige schrijftafel naast een raam met uitzicht op groen" />
