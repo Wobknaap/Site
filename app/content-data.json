@@ -12,7 +12,11 @@
       "source": "Cursor",
       "sourceUrl": "https://www.cursor.tue.nl/opinie/columnisten-nieuw/wob-knaap/het-sterretje-op-de-poster",
       "coverImage": "",
-      "editorialNote": ""
+      "editorialNote": "",
+      "tags": [
+        "Onderwijs",
+        "Eindhoven"
+      ]
     },
     {
       "slug": "expeditie-roermond",
@@ -26,7 +30,10 @@
       "source": "Cursor",
       "sourceUrl": "https://www.cursor.tue.nl/opinie/columnisten-nieuw/wob-knaap/expeditie-roermond",
       "coverImage": "",
-      "editorialNote": ""
+      "editorialNote": "",
+      "tags": [
+        "Studentenleven"
+      ]
     },
     {
       "slug": "werken-tussen-de-colleges-door",
@@ -40,7 +47,11 @@
       "source": "Cursor",
       "sourceUrl": "https://www.cursor.tue.nl/opinie/columnisten-nieuw/wob-knaap/werken-tussen-de-colleges-door",
       "coverImage": "",
-      "editorialNote": ""
+      "editorialNote": "",
+      "tags": [
+        "Studentenleven",
+        "Onderwijs"
+      ]
     },
     {
       "slug": "als-eindhoven-aangaat",
@@ -54,7 +65,11 @@
       "source": "Cursor",
       "sourceUrl": "https://www.cursor.tue.nl/opinie/columnisten-nieuw/wob-knaap/als-eindhoven-aangaat",
       "coverImage": "",
-      "editorialNote": ""
+      "editorialNote": "",
+      "tags": [
+        "Eindhoven",
+        "Studentenleven"
+      ]
     },
     {
       "slug": "het-model-dat-niet-convergeert",
@@ -68,7 +83,10 @@
       "source": "Cursor",
       "sourceUrl": "https://www.cursor.tue.nl/opinie/columnisten-nieuw/wob-knaap/het-model-dat-niet-convergeert",
       "coverImage": "",
-      "editorialNote": ""
+      "editorialNote": "",
+      "tags": [
+        "Maatschappij & beleid"
+      ]
     },
     {
       "slug": "afhakers",
@@ -82,7 +100,11 @@
       "source": "Cursor",
       "sourceUrl": "https://www.cursor.tue.nl/opinie/columnisten-nieuw/wob-knaap/afhakers",
       "coverImage": "",
-      "editorialNote": ""
+      "editorialNote": "",
+      "tags": [
+        "Onderwijs",
+        "Eindhoven"
+      ]
     },
     {
       "slug": "geen-college-wel-collegegeld",
@@ -96,7 +118,11 @@
       "source": "Cursor",
       "sourceUrl": "https://www.cursor.tue.nl/opinie/columnisten-nieuw/wob-knaap/geen-college-wel-collegegeld",
       "coverImage": "",
-      "editorialNote": ""
+      "editorialNote": "",
+      "tags": [
+        "Onderwijs",
+        "Studentenleven"
+      ]
     },
     {
       "slug": "het-ongemakkelijke-tabblad",
@@ -110,7 +136,11 @@
       "source": "Cursor",
       "sourceUrl": "https://www.cursor.tue.nl/opinie/columnisten-nieuw/wob-knaap/het-ongemakkelijke-tabblad",
       "coverImage": "",
-      "editorialNote": ""
+      "editorialNote": "",
+      "tags": [
+        "AI & technologie",
+        "Onderwijs"
+      ]
     },
     {
       "slug": "een-stad-een-intro",
@@ -124,7 +154,11 @@
       "source": "Cursor",
       "sourceUrl": "https://www.cursor.tue.nl/opinie/columnisten-nieuw/wob-knaap/een-stad-een-intro",
       "coverImage": "",
-      "editorialNote": ""
+      "editorialNote": "",
+      "tags": [
+        "Eindhoven",
+        "Studentenleven"
+      ]
     },
     {
       "slug": "vijf-fases-van-paniek-en-hoe-alles-toch-goedkwam",
@@ -138,7 +172,11 @@
       "source": "Cursor",
       "sourceUrl": "https://www.cursor.tue.nl/opinie/columnisten-nieuw/wob-knaap/vijf-fases-van-paniek-en-hoe-alles-toch-goedkwam",
       "coverImage": "",
-      "editorialNote": ""
+      "editorialNote": "",
+      "tags": [
+        "Onderwijs",
+        "Studentenleven"
+      ]
     },
     {
       "slug": "studenten-worden-slimmer-met-ai",
@@ -152,7 +190,11 @@
       "source": "Cursor",
       "sourceUrl": "https://www.cursor.tue.nl/opinie/columnisten-nieuw/wob-knaap/studenten-worden-slimmer-met-ai",
       "coverImage": "",
-      "editorialNote": ""
+      "editorialNote": "",
+      "tags": [
+        "AI & technologie",
+        "Onderwijs"
+      ]
     },
     {
       "slug": "tussen-flyers-en-studiepunten",
@@ -166,7 +208,11 @@
       "source": "Cursor",
       "sourceUrl": "https://www.cursor.tue.nl/opinie/columnisten-nieuw/wob-knaap/tussen-flyers-en-studiepunten",
       "coverImage": "",
-      "editorialNote": ""
+      "editorialNote": "",
+      "tags": [
+        "Studentenleven",
+        "Onderwijs"
+      ]
     },
     {
       "slug": "studentenleven-gaat-verloren-in-flats-zonder-ziel",
@@ -180,8 +226,13 @@
       "source": "Cursor",
       "sourceUrl": "https://www.cursor.tue.nl/opinie/columnisten-nieuw/wob-knaap/studentenleven-gaat-verloren-in-flats-zonder-ziel",
       "coverImage": "",
-      "editorialNote": ""
+      "editorialNote": "",
+      "tags": [
+        "Studentenleven",
+        "Eindhoven"
+      ]
     }
   ],
   "notes": []
 }
+

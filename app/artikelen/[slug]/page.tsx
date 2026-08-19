@@ -26,6 +26,9 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         <a className="back-link" href="/artikelen">← Alle artikelen</a>
         <header>
           <p className="eyebrow">{article.type} · {article.date} · {article.reading}</p>
+          <div className="article-tags article-page-tags" aria-label="Onderwerpen">
+            {article.tags.map((tag) => <span className="article-tag" key={tag}>{tag}</span>)}
+          </div>
           <h1>{article.title}</h1>
           <p className="article-deck">{article.excerpt}</p>
         </header>

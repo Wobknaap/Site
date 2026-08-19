@@ -81,7 +81,7 @@ function articleList(items) {
     return `<article class="article-row">
       <span class="article-number">${String(index + 1).padStart(2, "0")}</span>
       <div class="article-copy">
-        <div class="article-meta"><span>${escapeHtml(article.type)}${external ? ` · ${escapeHtml(article.source)}` : ""}</span><time>${escapeHtml(article.date)}</time></div>
+        <div class="article-meta"><span>${escapeHtml(article.type)}${external ? ` · ${escapeHtml(article.source)}` : ""}</span><time>${escapeHtml(article.date)}</time><div class="article-tags" aria-label="Onderwerpen">${article.tags.map((tag) => `<span class="article-tag">${escapeHtml(tag)}</span>`).join("")}</div></div>
         <h2><a href="${escapeHtml(url)}"${externalProps}>${escapeHtml(article.title)}</a></h2>
         <p>${escapeHtml(article.excerpt)}</p>
       </div>
@@ -151,7 +151,7 @@ for (const article of articles.filter((item) => item.status === "published")) {
     title: `${article.title} · Wob Knaap`,
     description: article.excerpt,
     active: "artikelen",
-    body: `<main id="top" class="article-page page-wrap"><a class="back-link" href="${href("/artikelen/")}">← Terug naar artikelen</a><article><header><p class="eyebrow">${escapeHtml(article.type)} · ${escapeHtml(article.date)}${article.reading ? ` · ${escapeHtml(article.reading)}` : ""}</p><h1>${escapeHtml(article.title)}</h1><p class="article-deck">${escapeHtml(article.excerpt)}</p>${article.coverImage ? `<img class="article-cover" src="${href(article.coverImage)}" alt="">` : ""}</header><div class="article-body">${markdown(article.body)}</div><footer class="article-end"><span>${escapeHtml(article.type)}</span><span>${escapeHtml(article.date)}</span></footer></article></main>`,
+    body: `<main id="top" class="article-page page-wrap"><a class="back-link" href="${href("/artikelen/")}">← Terug naar artikelen</a><article><header><p class="eyebrow">${escapeHtml(article.type)} · ${escapeHtml(article.date)}${article.reading ? ` · ${escapeHtml(article.reading)}` : ""}</p><div class="article-tags article-page-tags" aria-label="Onderwerpen">${article.tags.map((tag) => `<span class="article-tag">${escapeHtml(tag)}</span>`).join("")}</div><h1>${escapeHtml(article.title)}</h1><p class="article-deck">${escapeHtml(article.excerpt)}</p>${article.coverImage ? `<img class="article-cover" src="${href(article.coverImage)}" alt="">` : ""}</header><div class="article-body">${markdown(article.body)}</div><footer class="article-end"><span>${escapeHtml(article.type)}</span><span>${escapeHtml(article.date)}</span></footer></article></main>`,
   }));
 }
 

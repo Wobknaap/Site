@@ -59,6 +59,8 @@ figcaption { display: flex; justify-content: space-between; gap: 18px; margin-to
 .article-meta { padding-top: 3px; display: flex; flex-direction: column; gap: 8px; font: 8px var(--font-geist-mono); text-transform: uppercase; letter-spacing: .1em; }
 .article-meta span { color: var(--orange); }
 .article-meta time { color: var(--moss); }
+.article-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 3px; }
+.article-meta .article-tag, .article-tag { width: max-content; padding: 4px 6px; border: 1px solid var(--line); color: var(--moss); font: 7px/1 var(--font-geist-mono); text-transform: uppercase; letter-spacing: .06em; }
 .article-copy h2 { margin: 0; font: 400 clamp(28px, 2.5vw, 40px)/1.02 var(--serif); letter-spacing: -.035em; }
 .article-copy h2 a:hover { color: var(--moss); }
 .article-copy > p { max-width: 430px; margin: 1px 0 0; font: 16px/1.5 var(--serif); }
@@ -97,6 +99,7 @@ figcaption { display: flex; justify-content: space-between; gap: 18px; margin-to
 .article-page header { padding-bottom: 70px; border-bottom: 1px solid var(--ink); }
 .article-page h1 { margin: 36px 0; font: 400 clamp(62px, 8vw, 112px)/.9 var(--serif); letter-spacing: -.06em; }
 .article-deck { max-width: 720px; margin: 0; font: 26px/1.38 var(--serif); }
+.article-page-tags { margin-top: 22px; }
 .article-body { max-width: 680px; margin: 80px auto; }
 .article-body p { margin: 0 0 32px; font: 21px/1.65 var(--serif); }
 .article-body p:first-child::first-letter { float: left; margin: 5px 9px 0 0; font: 76px/.72 var(--serif); color: var(--forest); }
@@ -147,6 +150,12 @@ figcaption { display: flex; justify-content: space-between; gap: 18px; margin-to
 .field input, .field textarea, .field select { width: 100%; padding: 12px 0; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; outline: none; background: transparent; color: var(--ink); font: 15px/1.45 var(--font-geist-sans); text-transform: none; letter-spacing: 0; }
 .field textarea { padding: 14px; border: 1px solid var(--line); resize: vertical; }
 .field input:focus, .field textarea:focus, .field select:focus { border-color: var(--ink); }
+.tag-field { margin: 0; padding: 0 0 18px; border: 0; border-bottom: 1px solid var(--line); }
+.tag-field legend { margin-bottom: 12px; padding: 0; }
+.tag-field legend span { margin-left: 8px; color: var(--moss); text-transform: none; letter-spacing: 0; }
+.tag-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag-options button { padding: 8px 10px; border: 1px solid var(--line); background: transparent; color: var(--moss); font: 9px var(--font-geist-mono); }
+.tag-options button.selected { border-color: var(--forest); background: var(--forest); color: var(--paper); }
 .body-field { margin-top: 10px; }
 .body-field > span { color: var(--moss); font: 11px/1.45 var(--font-geist-sans); text-transform: none; letter-spacing: 0; }
 .body-field textarea { min-height: 540px; font: 16px/1.65 var(--font-geist-mono); }

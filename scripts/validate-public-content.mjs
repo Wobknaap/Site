@@ -3,6 +3,7 @@ import path from "node:path";
 
 const contentPath = path.join(process.cwd(), "app/content-data.json");
 const content = JSON.parse(await readFile(contentPath, "utf8"));
+const allowedTags = new Set(["AI & technologie", "Onderwijs", "Studentenleven", "Eindhoven", "Maatschappij & beleid"]);
 
 function fail(message) {
   throw new Error(`Openbare content ongeldig: ${message}`);
@@ -24,6 +25,12 @@ for (const article of content.articles) {
   slugs.add(article.slug);
   if (!String(article.title || "").trim() || !String(article.excerpt || "").trim()) {
     fail(`${article.slug} mist een titel of omschrijving`);
+  }
+  if (!Array.isArray(article.tags) || article.tags.length < 1 || article.tags.length > 2) {
+    fail(`${article.slug} moet één of twee tags hebben`);
+  }
+  if (new Set(article.tags).size !== article.tags.length || article.tags.some((tag) => !allowedTags.has(tag))) {
+    fail(`${article.slug} bevat een onbekende of dubbele tag`);
   }
   if (article.status === "published" && !String(article.body || "").trim()) {
     fail(`${article.slug} mist artikeltekst`);
