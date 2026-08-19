@@ -67,7 +67,7 @@ function layout({ title, description, active, body }) {
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; connect-src 'none'; frame-src 'none'; script-src 'none'">
   <title>${escapeHtml(title)}</title>
   <link rel="icon" href="${href("/favicon.svg")}">
-  <link rel="stylesheet" href="${href("/assets/site.css")}">
+  <link rel="stylesheet" href="${href("/assets/site-v2.css")}">
 </head>
 <body>${header(active)}${body}${footer()}</body>
 </html>`;
@@ -106,7 +106,7 @@ const staticCss = sourceCss
   .replace(/\/\* manager:start \*\/[\s\S]*?\/\* manager:end \*\//g, "")
   .replaceAll("var(--font-geist-sans)", "Arial, sans-serif")
   .replaceAll("var(--font-geist-mono)", '"Courier New", monospace');
-await writeFile(path.join(outputRoot, "assets/site.css"), staticCss);
+await writeFile(path.join(outputRoot, "assets/site-v2.css"), staticCss);
 await writeFile(path.join(outputRoot, ".nojekyll"), "");
 await writeFile(path.join(outputRoot, "robots.txt"), `User-agent: *\nAllow: ${href("/")}\nDisallow: ${href("/beheer/")}\n`);
 
