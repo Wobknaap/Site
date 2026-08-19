@@ -12,32 +12,32 @@ export default function Home() {
         <div className="banner-interface page-wrap">
           <div><span>WOB.KNAAP</span><span>PERSOONLIJK ARCHIEF</span></div>
           <p>ARTIKELEN&nbsp;&nbsp; NOTITIES&nbsp;&nbsp; OVER MIJ</p>
-          <div><span className="online-dot" /> ONLINE</div>
+          <div>EINDHOVEN · 2026</div>
         </div>
       </section>
 
       <section className="home-hero page-wrap">
         <div className="hero-copy">
-          <p className="eyebrow">Persoonlijk archief · Eindhoven</p>
-          <h1>Columns, essays en notities.</h1>
-          <p className="hero-deck">Over technologie, beleid, AI en Eindhoven.</p>
-          <a className="underlined-link" href="/artikelen">Bekijk alle artikelen ↗</a>
+          <p className="eyebrow">Wob Knaap · Eindhoven</p>
+          <h1>Columns en notities.</h1>
+          <p className="hero-deck">Over studentenleven, onderwijs, technologie en Eindhoven.</p>
+          <a className="underlined-link" href="/artikelen">Naar de artikelen ↗</a>
         </div>
       </section>
 
       <section className="home-latest page-wrap">
         <div className="section-heading">
-          <div><span>01</span><p>Recent geschreven</p></div>
-          <h2>Laatste artikelen</h2>
+          <div><span>01</span><p>Archief</p></div>
+          <h2>Recent gepubliceerd</h2>
         </div>
         <ArticleList items={articles.slice(0, 3)} />
       </section>
 
       <section className="home-notes page-wrap">
         <div>
-          <p className="eyebrow">Losse notities</p>
-          <h2>Korte observaties en ideeën in ontwikkeling.</h2>
-          <a className="underlined-link" href="/notities">Lees de notities ↗</a>
+          <p className="eyebrow">Notities</p>
+          <h2>Ideeën die nog niet af zijn.</h2>
+          <a className="underlined-link" href="/notities">Naar de notities ↗</a>
         </div>
         <figure>
           <img src="/images/hero-landscape.webp" alt="Een bankje in een groen landschap bij zonsopkomst" loading="lazy" />

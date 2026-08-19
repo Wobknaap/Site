@@ -111,39 +111,39 @@ await writeFile(path.join(outputRoot, ".nojekyll"), "");
 await writeFile(path.join(outputRoot, "robots.txt"), `User-agent: *\nAllow: ${href("/")}\nDisallow: ${href("/beheer/")}\n`);
 
 await writeRoute("/", layout({
-  title: "Wob Knaap · Columns, essays en notities",
-  description: "Persoonlijke site van Wob Knaap over technologie, beleid, AI en Eindhoven.",
+  title: "Wob Knaap · columns en notities",
+  description: "Columns en notities van Wob Knaap over studentenleven, onderwijs, technologie en Eindhoven.",
   active: "start",
   body: `<main id="top">
     <section class="terminal-banner" aria-label="Wob Knaap persoonlijk archief">
       <img src="${href("/images/glass-terminal-banner.webp")}" alt="Groene glazen bouwstenen met lichtreflecties">
-      <div class="banner-interface page-wrap"><div><span>WOB.KNAAP</span><span>PERSOONLIJK ARCHIEF</span></div><p>ARTIKELEN&nbsp;&nbsp; NOTITIES&nbsp;&nbsp; OVER MIJ</p><div><span class="online-dot"></span> ONLINE</div></div>
+      <div class="banner-interface page-wrap"><div><span>WOB.KNAAP</span><span>PERSOONLIJK ARCHIEF</span></div><p>ARTIKELEN&nbsp;&nbsp; NOTITIES&nbsp;&nbsp; OVER MIJ</p><div>EINDHOVEN · 2026</div></div>
     </section>
-    <section class="home-hero page-wrap"><div class="hero-copy"><p class="eyebrow">Persoonlijk archief · Eindhoven</p><h1>Columns, essays en notities.</h1><p class="hero-deck">Over technologie, beleid, AI en Eindhoven.</p><a class="underlined-link" href="${href("/artikelen/")}">Bekijk alle artikelen ↗</a></div></section>
-    <section class="home-latest page-wrap"><div class="section-heading"><div><span>01</span><p>Recent geschreven</p></div><h2>Laatste artikelen</h2></div>${articleList(articles.slice(0, 3))}</section>
-    <section class="home-notes page-wrap"><div><p class="eyebrow">Losse notities</p><h2>Korte observaties en ideeën in ontwikkeling.</h2><a class="underlined-link" href="${href("/notities/")}">Lees de notities ↗</a></div><figure><img src="${href("/images/hero-landscape.webp")}" alt="Een bankje in een groen landschap bij zonsopkomst" loading="lazy"><figcaption>Landschap bij zonsopkomst</figcaption></figure></section>
+    <section class="home-hero page-wrap"><div class="hero-copy"><p class="eyebrow">Wob Knaap · Eindhoven</p><h1>Columns en notities.</h1><p class="hero-deck">Over studentenleven, onderwijs, technologie en Eindhoven.</p><a class="underlined-link" href="${href("/artikelen/")}">Naar de artikelen ↗</a></div></section>
+    <section class="home-latest page-wrap"><div class="section-heading"><div><span>01</span><p>Archief</p></div><h2>Recent gepubliceerd</h2></div>${articleList(articles.slice(0, 3))}</section>
+    <section class="home-notes page-wrap"><div><p class="eyebrow">Notities</p><h2>Ideeën die nog niet af zijn.</h2><a class="underlined-link" href="${href("/notities/")}">Naar de notities ↗</a></div><figure><img src="${href("/images/hero-landscape.webp")}" alt="Een bankje in een groen landschap bij zonsopkomst" loading="lazy"><figcaption>Landschap bij zonsopkomst</figcaption></figure></section>
   </main>`,
 }));
 
 await writeRoute("/artikelen", layout({
   title: "Artikelen · Wob Knaap",
-  description: "Essays, columns en analyses van Wob Knaap over technologie, beleid, AI en Eindhoven.",
+  description: "Columns van Wob Knaap voor Cursor over studentenleven, onderwijs, technologie en Eindhoven.",
   active: "artikelen",
-  body: `<main id="top"><header class="page-intro page-wrap"><p class="eyebrow">Archief · ${articles.length} teksten</p><h1>Artikelen</h1><p>Essays, columns en analyses over technologie, beleid, AI en Eindhoven.</p></header><figure class="wide-image page-wrap"><img src="${href("/images/hero-landscape.webp")}" alt="Een bankje in een groen landschap bij zonsopkomst"><figcaption>Landschap bij zonsopkomst</figcaption></figure><section class="archive-page page-wrap">${articleList(articles)}</section></main>`,
+  body: `<main id="top"><header class="page-intro page-wrap"><p class="eyebrow">Archief · ${articles.length} columns</p><h1>Artikelen</h1><p>Columns voor Cursor over studentenleven, onderwijs, technologie en Eindhoven.</p></header><figure class="wide-image page-wrap"><img src="${href("/images/hero-landscape.webp")}" alt="Een bankje in een groen landschap bij zonsopkomst"><figcaption>Landschap bij zonsopkomst</figcaption></figure><section class="archive-page page-wrap">${articleList(articles)}</section></main>`,
 }));
 
 await writeRoute("/notities", layout({
   title: "Notities · Wob Knaap",
-  description: "Korte observaties en onderwerpen van Wob Knaap.",
+  description: "Notities van Wob Knaap die nog niet zijn uitgewerkt tot een artikel.",
   active: "notities",
-  body: `<main id="top"><header class="page-intro page-wrap"><p class="eyebrow">Korte observaties en onderwerpen</p><h1>Notities</h1><p>Onderwerpen en observaties die nog geen volledig artikel zijn.</p></header><section class="notes-list page-wrap">${content.notes.map((note, index) => `<article><span>${String(index + 1).padStart(2, "0")}</span><p>${escapeHtml(note.text)}</p><time>${escapeHtml(note.date)}</time></article>`).join("")}</section></main>`,
+  body: `<main id="top"><header class="page-intro page-wrap"><p class="eyebrow">In ontwikkeling</p><h1>Notities</h1><p>${content.notes.length === 0 ? "Nog geen notities gepubliceerd." : "Losse ideeën die nog niet zijn uitgewerkt tot een artikel."}</p></header>${content.notes.length > 0 ? `<section class="notes-list page-wrap">${content.notes.map((note, index) => `<article><span>${String(index + 1).padStart(2, "0")}</span><p>${escapeHtml(note.text)}</p><time>${escapeHtml(note.date)}</time></article>`).join("")}</section>` : ""}</main>`,
 }));
 
 await writeRoute("/over", layout({
   title: "Over mij · Wob Knaap",
-  description: "Over Wob Knaap, Data Science, technologie, beleid en Eindhoven.",
+  description: "Wob Knaap studeert Data Science aan de TU/e, schrijft voor Cursor en geeft AI-workshops.",
   active: "over",
-  body: `<main id="top"><section class="about-page page-wrap"><div class="about-copy"><p class="eyebrow">Over mij</p><h1>Over Wob Knaap.</h1><div class="prose"><p>Ik studeer Data Science en werk aan projecten op het gebied van technologie, beleid en communicatie.</p><p>Op deze site verzamel ik mijn columns, essays en notities. De onderwerpen lopen uiteen van AI en digitale platforms tot studentenbeleid en Eindhoven.</p><p>Daarnaast ontwikkel en geef ik workshops over praktische toepassingen van AI.</p></div></div><figure><img src="${href("/images/wob-knaap.jpg")}" alt="Portret van Wob Knaap"><figcaption>Wob Knaap · 2024</figcaption></figure></section></main>`,
+  body: `<main id="top"><section class="about-page page-wrap"><div class="about-copy"><p class="eyebrow">Over mij</p><h1>Over Wob Knaap.</h1><div class="prose"><p>Ik studeer Data Science aan de TU/e. Sinds 2024 schrijf ik columns voor Cursor over studentenleven, onderwijs, technologie en Eindhoven.</p><p>Op deze site houd ik mijn columns bij. Later komen daar langere stukken en notities bij.</p><p>Daarnaast ontwikkel en geef ik AI-workshops voor bedrijven, overheden en onderwijsinstellingen.</p></div></div><figure><img src="${href("/images/wob-knaap.jpg")}" alt="Portret van Wob Knaap"><figcaption>Wob Knaap · 2024</figcaption></figure></section></main>`,
 }));
 
 for (const article of articles.filter((item) => item.status === "published")) {

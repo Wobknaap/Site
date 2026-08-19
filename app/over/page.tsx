@@ -3,7 +3,7 @@ import { SiteFooter, SiteHeader } from "../components/site-chrome";
 
 export const metadata: Metadata = {
   title: "Over mij · Wob Knaap",
-  description: "Over Wob Knaap, Data Science, technologie, beleid en Eindhoven.",
+  description: "Wob Knaap studeert Data Science aan de TU/e, schrijft voor Cursor en geeft AI-workshops.",
 };
 
 export default function AboutPage() {
@@ -15,9 +15,9 @@ export default function AboutPage() {
           <p className="eyebrow">Over mij</p>
           <h1>Over Wob Knaap.</h1>
           <div className="prose">
-            <p>Ik studeer Data Science en werk aan projecten op het gebied van technologie, beleid en communicatie.</p>
-            <p>Op deze site verzamel ik mijn columns, essays en notities. De onderwerpen lopen uiteen van AI en digitale platforms tot studentenbeleid en Eindhoven.</p>
-            <p>Daarnaast ontwikkel en geef ik workshops over praktische toepassingen van AI.</p>
+            <p>Ik studeer Data Science aan de TU/e. Sinds 2024 schrijf ik columns voor Cursor over studentenleven, onderwijs, technologie en Eindhoven.</p>
+            <p>Op deze site houd ik mijn columns bij. Later komen daar langere stukken en notities bij.</p>
+            <p>Daarnaast ontwikkel en geef ik AI-workshops voor bedrijven, overheden en onderwijsinstellingen.</p>
           </div>
         </div>
         <figure>
