@@ -119,7 +119,7 @@ await writeRoute("/", layout({
       <img src="${href("/images/glass-terminal-banner.webp")}" alt="Groene glazen bouwstenen met lichtreflecties">
       <div class="banner-interface page-wrap"><div><span>WOB.KNAAP</span><span>PERSOONLIJK ARCHIEF</span></div><p>ARTIKELEN&nbsp;&nbsp; NOTITIES&nbsp;&nbsp; OVER MIJ</p><div>EINDHOVEN · 2026</div></div>
     </section>
-    <section class="home-hero page-wrap"><div class="hero-copy"><p class="eyebrow">Wob Knaap · Eindhoven</p><h1>Columns en notities.</h1><p class="hero-deck">Over studentenleven, onderwijs, technologie en Eindhoven.</p><a class="underlined-link" href="${href("/artikelen/")}">Naar de artikelen ↗</a></div></section>
+    <section class="home-hero page-wrap"><div class="hero-copy"><p class="eyebrow">Wob Knaap · Eindhoven</p><h1>Columns en notities.</h1><div class="hero-side"><p class="hero-deck">Over studentenleven, onderwijs, technologie en Eindhoven.</p><a class="underlined-link" href="${href("/artikelen/")}">Naar de artikelen ↗</a></div></div></section>
     <section class="home-latest page-wrap"><div class="section-heading"><div><span>01</span><p>Archief</p></div><h2>Recent gepubliceerd</h2></div>${articleList(articles.slice(0, 3))}</section>
     <section class="home-notes page-wrap"><div><p class="eyebrow">Notities</p><h2>Ideeën die nog niet af zijn.</h2><a class="underlined-link" href="${href("/notities/")}">Naar de notities ↗</a></div><figure><img src="${href("/images/hero-landscape.webp")}" alt="Een bankje in een groen landschap bij zonsopkomst" loading="lazy"><figcaption>Landschap bij zonsopkomst</figcaption></figure></section>
   </main>`,

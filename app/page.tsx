@@ -20,8 +20,10 @@ export default function Home() {
         <div className="hero-copy">
           <p className="eyebrow">Wob Knaap · Eindhoven</p>
           <h1>Columns en notities.</h1>
-          <p className="hero-deck">Over studentenleven, onderwijs, technologie en Eindhoven.</p>
-          <a className="underlined-link" href="/artikelen">Naar de artikelen ↗</a>
+          <div className="hero-side">
+            <p className="hero-deck">Over studentenleven, onderwijs, technologie en Eindhoven.</p>
+            <a className="underlined-link" href="/artikelen">Naar de artikelen ↗</a>
+          </div>
         </div>
       </section>
 
