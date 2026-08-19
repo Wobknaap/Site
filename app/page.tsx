@@ -40,8 +40,8 @@ export default function Home() {
           <a className="underlined-link" href="/notities">Lees de notities ↗</a>
         </div>
         <figure>
-          <img src="/images/circuit-detail.webp" alt="Detail van een verweerde groene printplaat" loading="lazy" />
-          <figcaption>Detail van een printplaat</figcaption>
+          <img src="/images/hero-landscape.webp" alt="Een bankje in een groen landschap bij zonsopkomst" loading="lazy" />
+          <figcaption>Landschap bij zonsopkomst</figcaption>
         </figure>
       </section>
 
