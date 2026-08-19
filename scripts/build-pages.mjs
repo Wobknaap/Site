@@ -121,7 +121,7 @@ await writeRoute("/", layout({
     </section>
     <section class="home-hero page-wrap"><div class="hero-copy"><p class="eyebrow">Persoonlijk archief · Eindhoven</p><h1>Columns, essays en notities.</h1><p class="hero-deck">Over technologie, beleid, AI en Eindhoven.</p><a class="underlined-link" href="${href("/artikelen/")}">Bekijk alle artikelen ↗</a></div></section>
     <section class="home-latest page-wrap"><div class="section-heading"><div><span>01</span><p>Recent geschreven</p></div><h2>Laatste artikelen</h2></div>${articleList(articles.slice(0, 3))}</section>
-    <section class="home-notes page-wrap"><div><p class="eyebrow">Losse notities</p><h2>Korte observaties en ideeën in ontwikkeling.</h2><a class="underlined-link" href="${href("/notities/")}">Lees de notities ↗</a></div><figure><img src="${href("/images/circuit-detail.webp")}" alt="Detail van een verweerde groene printplaat" loading="lazy"><figcaption>Detail van een printplaat</figcaption></figure></section>
+    <section class="home-notes page-wrap"><div><p class="eyebrow">Losse notities</p><h2>Korte observaties en ideeën in ontwikkeling.</h2><a class="underlined-link" href="${href("/notities/")}">Lees de notities ↗</a></div><figure><img src="${href("/images/hero-landscape.webp")}" alt="Een bankje in een groen landschap bij zonsopkomst" loading="lazy"><figcaption>Landschap bij zonsopkomst</figcaption></figure></section>
   </main>`,
 }));
 
@@ -129,7 +129,7 @@ await writeRoute("/artikelen", layout({
   title: "Artikelen · Wob Knaap",
   description: "Essays, columns en analyses van Wob Knaap over technologie, beleid, AI en Eindhoven.",
   active: "artikelen",
-  body: `<main id="top"><header class="page-intro page-wrap"><p class="eyebrow">Archief · ${articles.length} teksten</p><h1>Artikelen</h1><p>Essays, columns en analyses over technologie, beleid, AI en Eindhoven.</p></header><figure class="wide-image page-wrap"><img src="${href("/images/circuit-detail.webp")}" alt="Detail van een verweerde groene printplaat"><figcaption>Detail van een printplaat</figcaption></figure><section class="archive-page page-wrap">${articleList(articles)}</section></main>`,
+  body: `<main id="top"><header class="page-intro page-wrap"><p class="eyebrow">Archief · ${articles.length} teksten</p><h1>Artikelen</h1><p>Essays, columns en analyses over technologie, beleid, AI en Eindhoven.</p></header><figure class="wide-image page-wrap"><img src="${href("/images/hero-landscape.webp")}" alt="Een bankje in een groen landschap bij zonsopkomst"><figcaption>Landschap bij zonsopkomst</figcaption></figure><section class="archive-page page-wrap">${articleList(articles)}</section></main>`,
 }));
 
 await writeRoute("/notities", layout({
@@ -143,7 +143,7 @@ await writeRoute("/over", layout({
   title: "Over mij · Wob Knaap",
   description: "Over Wob Knaap, Data Science, technologie, beleid en Eindhoven.",
   active: "over",
-  body: `<main id="top"><section class="about-page page-wrap"><div class="about-copy"><p class="eyebrow">Over mij</p><h1>Over Wob Knaap.</h1><div class="prose"><p>Ik studeer Data Science en werk aan projecten op het gebied van technologie, beleid en communicatie.</p><p>Op deze site verzamel ik mijn columns, essays en notities. De onderwerpen lopen uiteen van AI en digitale platforms tot studentenbeleid en Eindhoven.</p><p>Daarnaast ontwikkel en geef ik workshops over praktische toepassingen van AI.</p></div></div><figure><img src="${href("/images/writing-desk.webp")}" alt="Een rustige schrijftafel naast een raam met uitzicht op groen"><figcaption>Werkplek · Eindhoven</figcaption></figure></section></main>`,
+  body: `<main id="top"><section class="about-page page-wrap"><div class="about-copy"><p class="eyebrow">Over mij</p><h1>Over Wob Knaap.</h1><div class="prose"><p>Ik studeer Data Science en werk aan projecten op het gebied van technologie, beleid en communicatie.</p><p>Op deze site verzamel ik mijn columns, essays en notities. De onderwerpen lopen uiteen van AI en digitale platforms tot studentenbeleid en Eindhoven.</p><p>Daarnaast ontwikkel en geef ik workshops over praktische toepassingen van AI.</p></div></div><figure><img src="${href("/images/wob-knaap.jpg")}" alt="Portret van Wob Knaap"><figcaption>Wob Knaap · 2024</figcaption></figure></section></main>`,
 }));
 
 for (const article of articles.filter((item) => item.status === "published")) {
