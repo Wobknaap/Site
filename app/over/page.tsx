@@ -21,8 +21,8 @@ export default function AboutPage() {
           </div>
         </div>
         <figure>
-          <img src="/images/writing-desk.webp" alt="Een rustige schrijftafel naast een raam met uitzicht op groen" />
-          <figcaption>Werkplek · Eindhoven</figcaption>
+          <img src="/images/wob-knaap.jpg" alt="Portret van Wob Knaap" />
+          <figcaption>Wob Knaap · 2024</figcaption>
         </figure>
       </section>
       <SiteFooter />

@@ -18,8 +18,8 @@ export default function ArticlesPage() {
         <p>Essays, columns en analyses over technologie, beleid, AI en Eindhoven.</p>
       </header>
       <figure className="wide-image page-wrap">
-        <img src="/images/circuit-detail.webp" alt="Detail van een verweerde groene printplaat" />
-        <figcaption>Detail van een printplaat</figcaption>
+        <img src="/images/hero-landscape.webp" alt="Een bankje in een groen landschap bij zonsopkomst" />
+        <figcaption>Landschap bij zonsopkomst</figcaption>
       </figure>
       <section className="archive-page page-wrap">
         <ArticleList items={articles} />

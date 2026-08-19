@@ -92,7 +92,7 @@ figcaption { display: flex; justify-content: space-between; gap: 18px; margin-to
 .prose { max-width: 570px; margin-bottom: 42px; }
 .prose p { margin: 0 0 22px; font: 18px/1.55 var(--serif); }
 .about-page figure { align-self: center; }
-.about-page figure img { height: 670px; object-fit: cover; }
+.about-page figure img { height: 670px; object-fit: cover; object-position: 55% center; }
 
 .article-page { max-width: 900px; padding-block: 80px 150px; }
 .back-link { display: inline-block; margin-bottom: 95px; font: 9px var(--font-geist-mono); text-transform: uppercase; letter-spacing: .1em; }
