@@ -1,8 +1,22 @@
 {
   "articles": [
     {
+      "slug": "het-sterretje-op-de-poster",
+      "date": "26 mei 2026",
+      "type": "Column",
+      "title": "Het sterretje op de poster",
+      "excerpt": "Volgens Wob Knaap is het niet primair de numerus fixus die drempels opwerpt voor studenten uit de regio Eindhoven. Het probleem begint al eerder: bij de vraag welke opleidingen überhaupt herkenbaar zijn en aantrekkelijk voelen voor Nederlandse scholieren.",
+      "reading": "",
+      "body": "",
+      "status": "external",
+      "source": "Cursor",
+      "sourceUrl": "https://www.cursor.tue.nl/opinie/columnisten-nieuw/wob-knaap/het-sterretje-op-de-poster",
+      "coverImage": "",
+      "editorialNote": ""
+    },
+    {
       "slug": "expeditie-roermond",
-      "date": "2026",
+      "date": "14 april 2026",
       "type": "Column",
       "title": "Expeditie Roermond",
       "excerpt": "Expeditie Roermond",
@@ -15,22 +29,8 @@
       "editorialNote": ""
     },
     {
-      "slug": "het-sterretje-op-de-poster",
-      "date": "2026",
-      "type": "Column",
-      "title": "Het sterretje op de poster",
-      "excerpt": "Het sterretje op de poster",
-      "reading": "",
-      "body": "",
-      "status": "external",
-      "source": "Cursor",
-      "sourceUrl": "https://www.cursor.tue.nl/opinie/columnisten-nieuw/wob-knaap/het-sterretje-op-de-poster",
-      "coverImage": "",
-      "editorialNote": ""
-    },
-    {
       "slug": "werken-tussen-de-colleges-door",
-      "date": "februari 2026",
+      "date": "21 januari 2026",
       "type": "Column",
       "title": "Werken tussen de colleges door",
       "excerpt": "Werken tussen de colleges door",
