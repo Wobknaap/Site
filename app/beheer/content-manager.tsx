@@ -1,7 +1,7 @@
 "use client";
 
 import { ChangeEvent, useEffect, useMemo, useRef, useState } from "react";
-import type { Article, ArticleSource, ArticleStatus, ContentStore, Note } from "../content";
+import { articleTags, type Article, type ArticleSource, type ArticleStatus, type ArticleTag, type ContentStore, type Note } from "../content";
 
 type ManagerView = "articles" | "notes";
 type WritableHandle = {
@@ -44,6 +44,7 @@ function makeArticle(): Article {
     sourceUrl: "",
     coverImage: "",
     editorialNote: "",
+    tags: [],
   };
 }
 
@@ -114,7 +115,7 @@ export function ContentManager({ initialContent }: { initialContent: ContentStor
       articles: content.articles.map((article) => article.slug === previousSlug ? { ...article, [field]: value } : article),
     };
     changeContent(next);
-    if (field === "slug") setSelectedSlug(value);
+    if (field === "slug") setSelectedSlug(value as string);
   }
 
   function addArticle() {
@@ -122,6 +123,13 @@ export function ContentManager({ initialContent }: { initialContent: ContentStor
     changeContent({ ...content, articles: [article, ...content.articles] });
     setSelectedSlug(article.slug);
     setView("articles");
+  }
+
+  function toggleTag(tag: ArticleTag) {
+    if (!selectedArticle) return;
+    const current = selectedArticle.tags ?? [];
+    const next = current.includes(tag) ? current.filter((item) => item !== tag) : [...current, tag].slice(0, 2);
+    updateArticle("tags", next);
   }
 
   function deleteArticle() {
@@ -286,6 +294,12 @@ export function ContentManager({ initialContent }: { initialContent: ContentStor
                 <label className="field">Type<select value={selectedArticle.type} onChange={(event) => updateArticle("type", event.target.value as Article["type"])}><option>Essay</option><option>Column</option><option>Analyse</option></select></label>
                 <label className="field">Bron<select value={selectedArticle.source} onChange={(event) => updateArticle("source", event.target.value as ArticleSource)}><option>Eigen site</option><option>Cursor</option><option>De AI Workshop</option></select></label>
                 <label className="field">Leestijd<input value={selectedArticle.reading} placeholder="8 minuten" onChange={(event) => updateArticle("reading", event.target.value)} /></label>
+                <fieldset className="field field-wide tag-field">
+                  <legend>Tags <span>maximaal 2 per artikel</span></legend>
+                  <div className="tag-options">
+                    {articleTags.map((tag) => <button className={(selectedArticle.tags ?? []).includes(tag) ? "selected" : ""} type="button" onClick={() => toggleTag(tag)} key={tag}>{tag}</button>)}
+                  </div>
+                </fieldset>
                 <label className="field field-wide">Bronlink<input type="url" value={selectedArticle.sourceUrl} placeholder="https://..." onChange={(event) => updateArticle("sourceUrl", event.target.value)} /></label>
                 <label className="field field-wide">Afbeelding<input value={selectedArticle.coverImage} placeholder="/images/bestandsnaam.webp" onChange={(event) => updateArticle("coverImage", event.target.value)} /></label>
                 <label className="field field-wide">Korte omschrijving<textarea rows={3} value={selectedArticle.excerpt} onChange={(event) => updateArticle("excerpt", event.target.value)} /></label>

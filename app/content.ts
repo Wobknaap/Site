@@ -2,6 +2,8 @@ import rawContent from "./content-data.json";
 
 export type ArticleStatus = "published" | "draft" | "external";
 export type ArticleSource = "Eigen site" | "Cursor" | "De AI Workshop";
+export const articleTags = ["AI & technologie", "Onderwijs", "Studentenleven", "Eindhoven", "Maatschappij & beleid"] as const;
+export type ArticleTag = (typeof articleTags)[number];
 
 export type Article = {
   slug: string;
@@ -16,6 +18,7 @@ export type Article = {
   sourceUrl: string;
   coverImage: string;
   editorialNote: string;
+  tags: ArticleTag[];
 };
 
 export type Note = {

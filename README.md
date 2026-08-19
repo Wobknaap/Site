@@ -49,6 +49,7 @@ De openbare content staat in `app/content-data.json`. Een artikel kan alleen gep
 - titel, omschrijving en artikeltekst zijn ingevuld;
 - `editorialNote` leeg is;
 - een eventueel afbeeldingspad onder `/images/` valt.
+- het artikel één of twee tags gebruikt uit de vijf vaste hoofdcategorieën.
 
 Controleer de inhoud met:
 

@@ -15,6 +15,9 @@ export function ArticleList({ items, compact = false }: { items: Article[]; comp
               <div className="article-meta">
                 <span>{article.type}{external ? ` · ${article.source}` : ""}</span>
                 <time>{article.date}</time>
+                <div className="article-tags" aria-label="Onderwerpen">
+                  {article.tags.map((tag) => <span className="article-tag" key={tag}>{tag}</span>)}
+                </div>
               </div>
               <h2><a href={href} {...linkProps}>{article.title}</a></h2>
               {!compact && <p>{article.excerpt}</p>}
