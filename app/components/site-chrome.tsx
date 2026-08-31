@@ -23,7 +23,7 @@ export function SiteHeader({ active }: { active?: ActivePage }) {
 export function SiteFooter() {
   return (
     <footer className="site-footer">
-      <p>Wob Knaap · Eindhoven · 2026</p>
+      <p>© 2026</p>
       <div><a href="#top">Naar boven ↑</a></div>
     </footer>
   );
