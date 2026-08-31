@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Wob Knaap · artikelen en notities",
-  description: "Columns en notities van Wob Knaap over studentenleven, onderwijs, technologie en Eindhoven.",
+  description: "Columns, essays en notities van Wob Knaap over studentenleven, onderwijs, technologie en Eindhoven.",
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
 };
 
