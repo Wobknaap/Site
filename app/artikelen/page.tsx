@@ -5,7 +5,7 @@ import { articles } from "../content";
 
 export const metadata: Metadata = {
   title: "Artikelen · Wob Knaap",
-  description: "Columns van Wob Knaap voor Cursor over studentenleven, onderwijs, technologie en Eindhoven.",
+  description: "Columns, essays en analyses van Wob Knaap over studentenleven, onderwijs, technologie en Eindhoven.",
 };
 
 export default function ArticlesPage() {
@@ -13,9 +13,9 @@ export default function ArticlesPage() {
     <main id="top">
       <SiteHeader active="artikelen" />
       <header className="page-intro page-wrap">
-        <p className="eyebrow">Archief · {articles.length} columns</p>
+        <p className="eyebrow">Archief · {articles.length} publicaties</p>
         <h1>Artikelen</h1>
-        <p>Columns voor Cursor over studentenleven, onderwijs, technologie en Eindhoven.</p>
+        <p>Columns voor Cursor en artikelen voor De AI Workshop over studentenleven, onderwijs, technologie en de maatschappij.</p>
       </header>
       <figure className="wide-image page-wrap">
         <img src="/images/hero-landscape.webp" alt="Een bankje in een groen landschap bij zonsopkomst" />
