@@ -52,7 +52,7 @@ function header(active) {
 }
 
 function footer() {
-  return `<footer class="site-footer"><p>Wob Knaap · Eindhoven · 2026</p><div><a href="#top">Naar boven ↑</a></div></footer>`;
+  return `<footer class="site-footer"><p>© 2026</p><div><a href="#top">Naar boven ↑</a></div></footer>`;
 }
 
 function layout({ title, description, active, body }) {
@@ -112,14 +112,13 @@ await writeFile(path.join(outputRoot, "robots.txt"), `User-agent: *\nAllow: ${hr
 
 await writeRoute("/", layout({
   title: "Wob Knaap · columns, essays en notities",
-  description: "Columns, essays en notities van Wob Knaap over studentenleven, onderwijs, technologie en Eindhoven.",
+  description: "Columns, essays en notities over technologie, onderwijs, beleid, studentenleven en andere onderwerpen.",
   active: "start",
   body: `<main id="top">
-    <section class="terminal-banner" aria-label="Wob Knaap persoonlijk archief">
+    <section class="terminal-banner" aria-label="Groene glazen bouwstenen">
       <img src="${href("/images/glass-terminal-banner.webp")}" alt="Groene glazen bouwstenen met lichtreflecties">
-      <div class="banner-interface page-wrap"><div><span>WOB.KNAAP</span><span>PERSOONLIJK ARCHIEF</span></div><p>ARTIKELEN&nbsp;&nbsp; NOTITIES&nbsp;&nbsp; OVER MIJ</p><div>EINDHOVEN · 2026</div></div>
     </section>
-    <section class="home-hero page-wrap"><div class="hero-copy"><p class="eyebrow">Wob Knaap · Eindhoven</p><h1>Columns, essays en notities.</h1><div class="hero-side"><p class="hero-deck">Over studentenleven, onderwijs, technologie en Eindhoven.</p><a class="underlined-link" href="${href("/artikelen/")}">Naar de artikelen ↗</a></div></div></section>
+    <section class="home-hero page-wrap"><div class="hero-copy"><h1>Columns, essays en notities.</h1><div class="hero-side"><p class="hero-deck">Over technologie, onderwijs, beleid, studentenleven en hoe die onderwerpen elkaar raken.</p><a class="underlined-link" href="${href("/artikelen/")}">Naar de artikelen ↗</a></div></div></section>
     <section class="home-latest page-wrap"><div class="section-heading"><div><span>01</span><p>Archief</p></div><h2>Recent gepubliceerd</h2></div>${articleList(articles.slice(0, 3))}</section>
     <section class="home-notes page-wrap"><div><p class="eyebrow">Notities</p><h2>Ideeën die nog niet af zijn.</h2><a class="underlined-link" href="${href("/notities/")}">Naar de notities ↗</a></div><figure><img src="${href("/images/hero-landscape.webp")}" alt="Een bankje in een groen landschap bij zonsopkomst" loading="lazy"><figcaption>Landschap bij zonsopkomst</figcaption></figure></section>
   </main>`,
@@ -127,9 +126,9 @@ await writeRoute("/", layout({
 
 await writeRoute("/artikelen", layout({
   title: "Artikelen · Wob Knaap",
-  description: "Columns, essays en analyses van Wob Knaap over studentenleven, onderwijs, technologie en Eindhoven.",
+  description: "Columns, essays en analyses over technologie, onderwijs, beleid, studentenleven en andere onderwerpen.",
   active: "artikelen",
-  body: `<main id="top"><header class="page-intro page-wrap"><p class="eyebrow">Archief · ${articles.length} publicaties</p><h1>Artikelen</h1><p>Columns voor Cursor en artikelen voor De AI Workshop over studentenleven, onderwijs, technologie en de maatschappij.</p></header><figure class="wide-image page-wrap"><img src="${href("/images/hero-landscape.webp")}" alt="Een bankje in een groen landschap bij zonsopkomst"><figcaption>Landschap bij zonsopkomst</figcaption></figure><section class="archive-page page-wrap">${articleList(articles)}</section></main>`,
+  body: `<main id="top"><header class="page-intro page-wrap"><p class="eyebrow">Archief · ${articles.length} publicaties</p><h1>Artikelen</h1><p>Columns, essays en analyses over technologie, onderwijs, beleid, studentenleven en andere onderwerpen die me bezighouden.</p></header><figure class="wide-image page-wrap"><img src="${href("/images/hero-landscape.webp")}" alt="Een bankje in een groen landschap bij zonsopkomst"><figcaption>Landschap bij zonsopkomst</figcaption></figure><section class="archive-page page-wrap">${articleList(articles)}</section></main>`,
 }));
 
 await writeRoute("/notities", layout({
