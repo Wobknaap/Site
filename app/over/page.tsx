@@ -16,7 +16,7 @@ export default function AboutPage() {
           <h1>Over Wob Knaap.</h1>
           <div className="prose">
             <p>Ik studeer Data Science aan de TU/e. Sinds 2024 schrijf ik columns voor Cursor over studentenleven, onderwijs, technologie en Eindhoven.</p>
-            <p>Op deze site houd ik mijn columns bij. Later komen daar langere stukken en notities bij.</p>
+            <p>Op deze site houd ik mijn columns en langere artikelen bij, waaronder mijn stukken voor De AI Workshop.</p>
             <p>Daarnaast ontwikkel en geef ik AI-workshops voor bedrijven, overheden en onderwijsinstellingen.</p>
           </div>
         </div>
