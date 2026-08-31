@@ -1,6 +1,58 @@
 {
   "articles": [
     {
+      "slug": "wie-vertelt-ons-waar-ai-naartoe-gaat",
+      "date": "31 augustus 2026",
+      "type": "Analyse",
+      "title": "Wie vertelt ons waar AI naartoe gaat?",
+      "excerpt": "Een smoelenboek van de mensen die richting geven aan de AI-race, en van de ideeën, belangen en marketing achter hun publieke verhalen.",
+      "reading": "",
+      "body": "",
+      "status": "external",
+      "source": "De AI Workshop",
+      "sourceUrl": "https://www.deaiworkshop.nl/blog/ai-geletterdheid-4/wie-vertelt-ons-waar-ai-naartoe-gaat-22",
+      "coverImage": "",
+      "editorialNote": "",
+      "tags": [
+        "AI & technologie",
+        "Maatschappij & beleid"
+      ]
+    },
+    {
+      "slug": "de-incognito-knop-de-geheime-superpower-van-llms",
+      "date": "27 juli 2026",
+      "type": "Analyse",
+      "title": "De incognito-knop: de geheime superpower van LLM's",
+      "excerpt": "Waarom vergeten soms de slimste prompttechniek is voor schone, onbevooroordeelde antwoorden.",
+      "reading": "",
+      "body": "",
+      "status": "external",
+      "source": "De AI Workshop",
+      "sourceUrl": "https://www.deaiworkshop.nl/blog/ai-geletterdheid-4/de-incognito-knop-de-geheime-superpower-van-llm-s-20",
+      "coverImage": "",
+      "editorialNote": "",
+      "tags": [
+        "AI & technologie"
+      ]
+    },
+    {
+      "slug": "van-typen-naar-denken",
+      "date": "1 juni 2026",
+      "type": "Essay",
+      "title": "Van typen naar denken: Hoe praat jij straks met AI?",
+      "excerpt": "Waarom het chatvenster zijn langste tijd heeft gehad en de interface van de toekomst steeds minder zichtbaar wordt.",
+      "reading": "",
+      "body": "",
+      "status": "external",
+      "source": "De AI Workshop",
+      "sourceUrl": "https://www.deaiworkshop.nl/blog/ai-geletterdheid-4/van-typen-naar-denken-hoe-praat-jij-straks-met-ai-16",
+      "coverImage": "",
+      "editorialNote": "",
+      "tags": [
+        "AI & technologie"
+      ]
+    },
+    {
       "slug": "het-sterretje-op-de-poster",
       "date": "26 mei 2026",
       "type": "Column",
@@ -36,6 +88,24 @@
       ]
     },
     {
+      "slug": "worden-we-werkloos-door-ai",
+      "date": "23 maart 2026",
+      "type": "Analyse",
+      "title": "Worden we werkloos door AI? De O-ring paradox en de toekomst van werk",
+      "excerpt": "Waarom automatisering werk niet simpelweg laat verdwijnen, maar menselijke vaardigheden, scholing en de verdeling van kansen belangrijker maakt.",
+      "reading": "",
+      "body": "",
+      "status": "external",
+      "source": "De AI Workshop",
+      "sourceUrl": "https://www.deaiworkshop.nl/blog/ai-geletterdheid-4/worden-we-werkloos-door-ai-de-o-ring-paradox-en-de-toekomst-van-werk-10",
+      "coverImage": "",
+      "editorialNote": "",
+      "tags": [
+        "AI & technologie",
+        "Maatschappij & beleid"
+      ]
+    },
+    {
       "slug": "werken-tussen-de-colleges-door",
       "date": "21 januari 2026",
       "type": "Column",
@@ -51,6 +121,24 @@
       "tags": [
         "Studentenleven",
         "Onderwijs"
+      ]
+    },
+    {
+      "slug": "ai-geletterdheid-verplichting-voor-organisaties",
+      "date": "29 december 2025",
+      "type": "Analyse",
+      "title": "AI-geletterdheid: verplichting voor organisaties en de AI Act",
+      "excerpt": "Wat AI-geletterdheid inhoudt, waarom de AI Act organisaties tot actie dwingt en hoe je daar structureel werk van maakt.",
+      "reading": "",
+      "body": "",
+      "status": "external",
+      "source": "De AI Workshop",
+      "sourceUrl": "https://www.deaiworkshop.nl/blog/ai-geletterdheid-4/stappenplan-naar-ai-geletterdheid-1",
+      "coverImage": "",
+      "editorialNote": "",
+      "tags": [
+        "AI & technologie",
+        "Maatschappij & beleid"
       ]
     },
     {
