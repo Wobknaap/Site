@@ -69,7 +69,7 @@ function layout({ title, description, active, body, embedPdf = false }) {
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self'; font-src 'self'; object-src ${embedPdf ? "'self'" : "'none'"}; base-uri 'none'; form-action 'none'; connect-src 'none'; frame-src ${embedPdf ? "'self'" : "'none'"}; script-src 'none'">
   <title>${escapeHtml(title)}</title>
   <link rel="icon" href="${href("/favicon.svg")}">
-  <link rel="stylesheet" href="${href("/assets/site-v8.css")}">
+  <link rel="stylesheet" href="${href("/assets/site-v9.css")}">
 </head>
 <body>${header(active)}${body}${footer()}</body>
 </html>`;
@@ -110,7 +110,7 @@ const staticCss = sourceCss
   .replaceAll("var(--font-geist-sans)", "Arial, sans-serif")
   .replaceAll("var(--font-geist-mono)", '"Courier New", monospace')
   .replaceAll('url("/images/', 'url("../images/');
-await writeFile(path.join(outputRoot, "assets/site-v8.css"), staticCss);
+await writeFile(path.join(outputRoot, "assets/site-v9.css"), staticCss);
 await writeFile(path.join(outputRoot, ".nojekyll"), "");
 await writeFile(path.join(outputRoot, "robots.txt"), `User-agent: *\nAllow: ${href("/")}\nDisallow: ${href("/beheer/")}\n`);
 
