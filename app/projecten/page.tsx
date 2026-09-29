@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SiteFooter, SiteHeader } from "../components/site-chrome";
 import projects from "../projects-data.json";
+import { ProjectTitle } from "../components/article-title";
 
 export const metadata: Metadata = {
   title: "Persoonlijke projecten · Wob Knaap",
@@ -17,7 +18,7 @@ export default function ProjectsPage() {
     <section className="project-grid page-wrap" aria-label="Projecten">
       {projects.map((project) => <article className="project-card" key={project.title}>
         <p className="eyebrow">{project.category}</p>
-        <h2><a href={project.href}>{project.title}</a></h2>
+        <h2><a href={project.href}><ProjectTitle project={project} /></a></h2>
         <p>{project.description}</p>
         <div className="article-tags">{project.tags.map(tag => <span className="article-tag" key={tag}>{tag}</span>)}</div>
         <a className="underlined-link archive-link" href={project.href}>{project.href.startsWith("https:") ? "Bekijk op GitHub ↗" : "Bekijk het project ↗"}</a>

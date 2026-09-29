@@ -1,0 +1,14 @@
+{
+  "/projecten/appie-sniper": {
+    "src": "/images/project-titles/appie-sniper.webp",
+    "width": 2024,
+    "height": 485,
+    "lines": 1
+  },
+  "/projecten/thematic-structures-of-deception": {
+    "src": "/images/project-titles/thematic-structures-of-deception.webp",
+    "width": 2048,
+    "height": 303,
+    "lines": 1
+  }
+}

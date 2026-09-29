@@ -1,4 +1,5 @@
 import type { Article } from "../content";
+import { ArticleTitle } from "./article-title";
 
 export function ArticleList({ items, compact = false }: { items: Article[]; compact?: boolean }) {
   return (
@@ -19,7 +20,7 @@ export function ArticleList({ items, compact = false }: { items: Article[]; comp
                   {article.tags.map((tag) => <span className="article-tag" key={tag}>{tag}</span>)}
                 </div>
               </div>
-              <h2><a href={href} {...linkProps}>{article.title}</a></h2>
+              <h2><a href={href} {...linkProps}><ArticleTitle article={article} /></a></h2>
               {!compact && <p>{article.excerpt}</p>}
             </div>
             <a className="article-link" href={href} aria-label={`Lees ${article.title}`} {...linkProps}>

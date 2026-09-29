@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import { SiteFooter, SiteHeader } from "../../components/site-chrome";
 import { publishedArticles } from "../../content";
+import { ArticleTitle } from "../../components/article-title";
 
 export function generateStaticParams() {
   return publishedArticles.map((article) => ({ slug: article.slug }));
@@ -29,7 +30,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           <div className="article-tags article-page-tags" aria-label="Onderwerpen">
             {article.tags.map((tag) => <span className="article-tag" key={tag}>{tag}</span>)}
           </div>
-          <h1>{article.title}</h1>
+          <h1><ArticleTitle article={article} /></h1>
           <p className="article-deck">{article.excerpt}</p>
         </header>
         {article.coverImage && <img className="article-cover" src={article.coverImage} alt="" />}

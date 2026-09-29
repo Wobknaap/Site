@@ -7,6 +7,8 @@ const rawBasePath = process.env.PAGES_BASE_PATH ?? "/Site";
 const basePath = rawBasePath === "/" ? "" : rawBasePath.replace(/\/$/, "");
 const content = JSON.parse(await readFile(path.join(projectRoot, "app/content-data.json"), "utf8"));
 const articles = content.articles.filter((article) => article.status === "published" || (article.status === "external" && article.sourceUrl));
+const titleImages = JSON.parse(await readFile(path.join(projectRoot, "app/article-title-images.json"), "utf8"));
+const projectTitleImages = JSON.parse(await readFile(path.join(projectRoot, "app/project-title-images.json"), "utf8"));
 
 const bep = JSON.parse(await readFile(path.join(projectRoot, "app/bep-case-study.json"), "utf8"));
 const study = JSON.parse(await readFile(path.join(projectRoot, "app/appie-case-study.json"), "utf8"));
@@ -69,10 +71,19 @@ function layout({ title, description, active, body, embedPdf = false }) {
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self'; font-src 'self'; object-src ${embedPdf ? "'self'" : "'none'"}; base-uri 'none'; form-action 'none'; connect-src 'none'; frame-src ${embedPdf ? "'self'" : "'none'"}; script-src 'none'">
   <title>${escapeHtml(title)}</title>
   <link rel="icon" href="${href("/favicon.svg")}">
-  <link rel="stylesheet" href="${href("/assets/site-v20.css")}">
+  <link rel="stylesheet" href="${href("/assets/site-v21.css")}">
 </head>
 <body>${header(active)}${body}${footer()}</body>
 </html>`;
+}
+
+function handwrittenTitle(title, image) {
+  if (!image) return escapeHtml(title);
+  return `<img class="article-title-image article-title-image--${image.lines}" src="${href(image.src)}" width="${image.width}" height="${image.height}" alt="${escapeHtml(title)}" loading="lazy" decoding="async">`;
+}
+
+function articleTitle(article) {
+  return handwrittenTitle(article.title, titleImages[article.slug]);
 }
 
 function articleList(items) {
@@ -84,7 +95,7 @@ function articleList(items) {
       <span class="article-number">${String(index + 1).padStart(2, "0")}</span>
       <div class="article-copy">
         <div class="article-meta"><span>${escapeHtml(article.type)}${external ? ` · ${escapeHtml(article.source)}` : ""}</span><time>${escapeHtml(article.date)}</time><div class="article-tags" aria-label="Onderwerpen">${article.tags.map((tag) => `<span class="article-tag">${escapeHtml(tag)}</span>`).join("")}</div></div>
-        <h2><a href="${escapeHtml(url)}"${externalProps}>${escapeHtml(article.title)}</a></h2>
+        <h2><a href="${escapeHtml(url)}"${externalProps}>${articleTitle(article)}</a></h2>
         <p>${escapeHtml(article.excerpt)}</p>
       </div>
       <a class="article-link" href="${escapeHtml(url)}"${externalProps}>${external ? "Bron ↗" : "Lees ↗"}</a>
@@ -110,7 +121,7 @@ const staticCss = sourceCss
   .replaceAll("var(--font-geist-sans)", "Arial, sans-serif")
   .replaceAll("var(--font-geist-mono)", '"Courier New", monospace')
   .replaceAll('url("/images/', 'url("../images/');
-await writeFile(path.join(outputRoot, "assets/site-v20.css"), staticCss);
+await writeFile(path.join(outputRoot, "assets/site-v21.css"), staticCss);
 await writeFile(path.join(outputRoot, ".nojekyll"), "");
 await writeFile(path.join(outputRoot, "robots.txt"), `User-agent: *\nAllow: ${href("/")}\nDisallow: ${href("/beheer/")}\n`);
 
@@ -132,7 +143,7 @@ await writeRoute("/projecten", layout({
   title: "Persoonlijke projecten · Wob Knaap",
   description: "Eigen projecten en onderzoek met data, taal en technologie.",
   active: "projecten",
-  body: `<main id="top"><header class="page-intro projects-intro page-wrap"><p class="eyebrow">Data · taal · technologie</p><h1 class="handwritten-heading projects-handwritten-heading"><img class="torn-paper" src="${href("/images/nav-projecten.webp")}" alt="Persoonlijke projecten"></h1></header><section class="project-grid page-wrap" aria-label="Projecten">${projects.map(project => `<article class="project-card"><p class="eyebrow">${escapeHtml(project.category)}</p><h2><a href="${escapeHtml(project.href.startsWith("https:") ? project.href : href(project.href + "/"))}">${escapeHtml(project.title)}</a></h2><p>${escapeHtml(project.description)}</p><div class="article-tags">${project.tags.map(tag => `<span class="article-tag">${escapeHtml(tag)}</span>`).join("")}</div><a class="underlined-link archive-link" href="${escapeHtml(project.href.startsWith("https:") ? project.href : href(project.href + "/"))}">${project.href.startsWith("https:") ? "Bekijk op GitHub ↗" : "Bekijk het project ↗"}</a></article>`).join("")}</section></main>`,
+  body: `<main id="top"><header class="page-intro projects-intro page-wrap"><p class="eyebrow">Data · taal · technologie</p><h1 class="handwritten-heading projects-handwritten-heading"><img class="torn-paper" src="${href("/images/nav-projecten.webp")}" alt="Persoonlijke projecten"></h1></header><section class="project-grid page-wrap" aria-label="Projecten">${projects.map(project => `<article class="project-card"><p class="eyebrow">${escapeHtml(project.category)}</p><h2><a href="${escapeHtml(project.href.startsWith("https:") ? project.href : href(project.href + "/"))}">${handwrittenTitle(project.title, projectTitleImages[project.href])}</a></h2><p>${escapeHtml(project.description)}</p><div class="article-tags">${project.tags.map(tag => `<span class="article-tag">${escapeHtml(tag)}</span>`).join("")}</div><a class="underlined-link archive-link" href="${escapeHtml(project.href.startsWith("https:") ? project.href : href(project.href + "/"))}">${project.href.startsWith("https:") ? "Bekijk op GitHub ↗" : "Bekijk het project ↗"}</a></article>`).join("")}</section></main>`,
 }));
 
 await writeRoute("/projecten/appie-sniper", layout({
@@ -170,7 +181,7 @@ for (const article of articles.filter((item) => item.status === "published")) {
     title: `${article.title} · Wob Knaap`,
     description: article.excerpt,
     active: "artikelen",
-    body: `<main id="top" class="article-page page-wrap"><a class="back-link" href="${href("/artikelen/")}">← Terug naar artikelen</a><article><header><p class="eyebrow">${escapeHtml(article.type)} · ${escapeHtml(article.date)}${article.reading ? ` · ${escapeHtml(article.reading)}` : ""}</p><div class="article-tags article-page-tags" aria-label="Onderwerpen">${article.tags.map((tag) => `<span class="article-tag">${escapeHtml(tag)}</span>`).join("")}</div><h1>${escapeHtml(article.title)}</h1><p class="article-deck">${escapeHtml(article.excerpt)}</p>${article.coverImage ? `<img class="article-cover" src="${href(article.coverImage)}" alt="">` : ""}</header><div class="article-body">${markdown(article.body)}</div><footer class="article-end"><span>${escapeHtml(article.type)}</span><span>${escapeHtml(article.date)}</span></footer></article></main>`,
+    body: `<main id="top" class="article-page page-wrap"><a class="back-link" href="${href("/artikelen/")}">← Terug naar artikelen</a><article><header><p class="eyebrow">${escapeHtml(article.type)} · ${escapeHtml(article.date)}${article.reading ? ` · ${escapeHtml(article.reading)}` : ""}</p><div class="article-tags article-page-tags" aria-label="Onderwerpen">${article.tags.map((tag) => `<span class="article-tag">${escapeHtml(tag)}</span>`).join("")}</div><h1>${articleTitle(article)}</h1><p class="article-deck">${escapeHtml(article.excerpt)}</p>${article.coverImage ? `<img class="article-cover" src="${href(article.coverImage)}" alt="">` : ""}</header><div class="article-body">${markdown(article.body)}</div><footer class="article-end"><span>${escapeHtml(article.type)}</span><span>${escapeHtml(article.date)}</span></footer></article></main>`,
   }));
 }
 
