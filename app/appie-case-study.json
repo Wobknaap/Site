@@ -13,7 +13,7 @@
   ],
   "buildTitle": "Hoe het werkt",
   "build": [
-    "Ik bouwde voort op bestaande reverse-engineering van de AH-app-API. De documentatie van jabbink beschrijft onder meer de app-authenticatie. Het project appie-go van gwillem bevat een GraphQL-schema op basis van een MITM-dump. Met Python en Requests vraag ik het Laatste Kans-aanbod per winkel op. Pandas zet de API-antwoorden om naar productgegevens; elke meting krijgt een tijdstempel en gaat naar een CSV-bestand.",
+    "Met Python en Requests vraag ik het Laatste Kans-aanbod per winkel op. Pandas zet de API-antwoorden om naar productgegevens; elke meting krijgt een tijdstempel en gaat naar een CSV-bestand.",
     "GitHub Actions start het script iedere dertig minuten. De werkelijke meetmomenten verschillen. Voor de Woenselse Markt in Eindhoven bevat de dataset van 4 tot en met 25 februari 2026 315 momentopnames, 72.836 waarnemingen en 1.324 productnamen.",
     "Met Flask, Jinja, HTML en CSS maakte ik een dashboard om winkels, aanbiedingen en mogelijke combinaties met Bonusacties te bekijken. Trefwoordregels koppelen verspakketten aan aanvullende aanbiedingen. Voor de historische data bouwde ik een apart dashboard met Streamlit en Altair."
   ],

@@ -18,7 +18,7 @@ export default function ArticlesPage() {
         <p>Artikelen over technologie, onderwijs, beleid, studentenleven en Eindhoven.</p>
       </header>
       <figure className="wide-image page-wrap">
-        <img src="/images/article-banner.webp" alt="Groene letterstenen met losse letters in een raster" />
+        <img src="/images/letterstenen-banner.webp" alt="Groene letterstenen met losse letters in een raster" />
         <figcaption>Groene letterstenen</figcaption>
       </figure>
       <section className="archive-page page-wrap">

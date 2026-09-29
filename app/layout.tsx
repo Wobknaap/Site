@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Wob Knaap · artikelen en projecten",
-  description: "Columns, essays en projecten over technologie, onderwijs, beleid, studentenleven en andere onderwerpen.",
+  description: "Artikelen en persoonlijke projecten van Wob Knaap.",
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
 };
 

@@ -7,39 +7,21 @@ export default function Home() {
     <main id="top">
       <SiteHeader active="start" />
 
-      <section className="terminal-banner" aria-label="Groene glazen bouwstenen">
-        <img src="/images/glass-terminal-banner.webp" alt="Groene glazen bouwstenen met lichtreflecties" fetchPriority="high" />
-      </section>
-
-      <section className="home-hero page-wrap">
-        <div className="hero-copy">
-          <h1>Columns, essays en projecten.</h1>
-          <div className="hero-side">
-            <p className="hero-deck">Over technologie, onderwijs, beleid, studentenleven en hoe die onderwerpen elkaar raken.</p>
-            <a className="underlined-link" href="/artikelen">Naar de artikelen ↗</a>
-          </div>
-        </div>
-      </section>
-
       <section className="home-latest page-wrap">
-        <div className="section-heading">
-          <div><span>01</span><p>Archief</p></div>
-          <h2>Recent gepubliceerd</h2>
+        <div className="section-heading home-section-heading">
+          <h1>Artikelen</h1>
+          <a className="underlined-link" href="/artikelen">Alle artikelen</a>
         </div>
-        <ArticleList items={featuredArticles} />
-        <a className="underlined-link archive-link" href="/artikelen">Alle artikelen bekijken ↗</a>
+        <ArticleList items={featuredArticles.slice(0, 4)} />
       </section>
 
       <section className="home-projects page-wrap">
-        <div>
-          <p className="eyebrow">Persoonlijke projecten</p>
-          <h2>Van idee naar toepassing.</h2>
-          <a className="underlined-link" href="/projecten">Bekijk mijn projecten ↗</a>
-        </div>
-        <figure>
-          <img src="/images/hero-landscape.webp" alt="Een bankje in een groen landschap bij zonsopkomst" loading="lazy" />
-          <figcaption>Landschap bij zonsopkomst</figcaption>
-        </figure>
+        <h2>Projecten</h2>
+        <ul>
+          <li><a href="/projecten/appie-sniper">Wat verschijnt er in het afprijsrek?</a><span>Data · Python</span></li>
+          <li><a href="/projecten/thematic-structures-of-deception">Thematic Structures of Deception</a><span>Bachelor eindproject</span></li>
+        </ul>
+        <a className="underlined-link" href="/projecten">Alle projecten</a>
       </section>
 
       <SiteFooter />

@@ -119,16 +119,22 @@ await writeFile(path.join(outputRoot, ".nojekyll"), "");
 await writeFile(path.join(outputRoot, "robots.txt"), `User-agent: *\nAllow: ${href("/")}\nDisallow: ${href("/beheer/")}\n`);
 
 await writeRoute("/", layout({
-  title: "Wob Knaap · columns, essays en projecten",
-  description: "Columns, essays en projecten over technologie, onderwijs, beleid, studentenleven en andere onderwerpen.",
+  title: "Wob Knaap · artikelen en projecten",
+  description: "Artikelen en persoonlijke projecten van Wob Knaap.",
   active: "start",
   body: `<main id="top">
-    <section class="terminal-banner" aria-label="Groene glazen bouwstenen">
-      <img src="${href("/images/glass-terminal-banner.webp")}" alt="Groene glazen bouwstenen met lichtreflecties">
+    <section class="home-latest page-wrap">
+      <div class="section-heading home-section-heading"><h1>Artikelen</h1><a class="underlined-link" href="${href("/artikelen/")}">Alle artikelen</a></div>
+      ${articleList(featuredArticles.slice(0, 4))}
     </section>
-    <section class="home-hero page-wrap"><div class="hero-copy"><h1>Columns, essays en projecten.</h1><div class="hero-side"><p class="hero-deck">Over technologie, onderwijs, beleid, studentenleven en hoe die onderwerpen elkaar raken.</p><a class="underlined-link" href="${href("/artikelen/")}">Naar de artikelen ↗</a></div></div></section>
-    <section class="home-latest page-wrap"><div class="section-heading"><div><span>01</span><p>Archief</p></div><h2>Recent gepubliceerd</h2></div>${articleList(featuredArticles)}<a class="underlined-link archive-link" href="${href("/artikelen/")}">Alle artikelen bekijken ↗</a></section>
-    <section class="home-projects page-wrap"><div><p class="eyebrow">Persoonlijke projecten</p><h2>Van idee naar toepassing.</h2><a class="underlined-link" href="${href("/projecten/")}">Bekijk mijn projecten ↗</a></div><figure><img src="${href("/images/hero-landscape.webp")}" alt="Een bankje in een groen landschap bij zonsopkomst" loading="lazy"><figcaption>Landschap bij zonsopkomst</figcaption></figure></section>
+    <section class="home-projects page-wrap">
+      <h2>Projecten</h2>
+      <ul>
+        <li><a href="${href("/projecten/appie-sniper/")}">Wat verschijnt er in het afprijsrek?</a><span>Data · Python</span></li>
+        <li><a href="${href("/projecten/thematic-structures-of-deception/")}">Thematic Structures of Deception</a><span>Bachelor eindproject</span></li>
+      </ul>
+      <a class="underlined-link" href="${href("/projecten/")}">Alle projecten</a>
+    </section>
   </main>`,
 }));
 
@@ -136,7 +142,7 @@ await writeRoute("/artikelen", layout({
   title: "Artikelen · Wob Knaap",
   description: "Columns, essays en analyses over technologie, onderwijs, beleid, studentenleven en andere onderwerpen.",
   active: "artikelen",
-  body: `<main id="top"><header class="page-intro page-wrap"><p class="eyebrow">Archief · ${articles.length} publicaties</p><h1>Artikelen</h1><p>Artikelen over technologie, onderwijs, beleid, studentenleven en Eindhoven.</p></header><figure class="wide-image page-wrap"><img src="${href("/images/article-banner.webp")}" alt="Groene letterstenen met losse letters in een raster"><figcaption>Groene letterstenen</figcaption></figure><section class="archive-page page-wrap">${articleList(articles)}</section></main>`,
+  body: `<main id="top"><header class="page-intro page-wrap"><p class="eyebrow">Archief · ${articles.length} publicaties</p><h1>Artikelen</h1><p>Artikelen over technologie, onderwijs, beleid, studentenleven en Eindhoven.</p></header><figure class="wide-image page-wrap"><img src="${href("/images/letterstenen-banner.webp")}" alt="Groene letterstenen met losse letters in een raster"><figcaption>Groene letterstenen</figcaption></figure><section class="archive-page page-wrap">${articleList(articles)}</section></main>`,
 }));
 
 await writeRoute("/projecten", layout({
@@ -152,7 +158,7 @@ await writeRoute("/projecten/appie-sniper", layout({
  <a class="back-link" href="${href("/projecten/")}">← Persoonlijke projecten</a>
  <header class="case-intro"><p class="eyebrow">Appie Sniper · Persoonlijk project · 2026</p><h1>${escapeHtml(study.title)}</h1><p class="article-deck">${escapeHtml(study.intro)}</p></header>
  <div class="case-stats"><div><strong>72.836</strong><span>waarnemingen</span></div><div><strong>315</strong><span>meetmomenten</span></div><div><strong>1.324</strong><span>productnamen</span></div><div><strong>22</strong><span>dagen</span></div></div>
- <section class="case-copy"><h2>${escapeHtml(study.buildTitle)}</h2>${study.build.map((p,index)=>`<p>${escapeHtml(p)}${index===0?` Zie ook <a href="${escapeHtml(study.apiSources[0].url)}" target="_blank" rel="noreferrer">${escapeHtml(study.apiSources[0].label)}</a> en <a href="${escapeHtml(study.apiSources[1].url)}" target="_blank" rel="noreferrer">${escapeHtml(study.apiSources[1].label)}</a>.`:""}</p>`).join("")}<div class="article-tags">${study.stack.map(tag=>`<span class="article-tag">${escapeHtml(tag)}</span>`).join("")}</div></section>
+ <section class="case-copy"><h2>${escapeHtml(study.buildTitle)}</h2>${study.build.map((p,index)=>`<p>${index===0?`Ik bouwde voort op bestaande reverse-engineering van de AH-app-API, waaronder <a href="${escapeHtml(study.apiSources[0].url)}" target="_blank" rel="noreferrer">de documentatie van jabbink</a> en <a href="${escapeHtml(study.apiSources[1].url)}" target="_blank" rel="noreferrer">appie-go van gwillem</a>. `:""}${escapeHtml(p)}</p>`).join("")}<div class="article-tags">${study.stack.map(tag=>`<span class="article-tag">${escapeHtml(tag)}</span>`).join("")}</div></section>
  <div class="case-screens"><figure><a href="${href("/images/appie/dashboard.webp")}"><img src="${href("/images/appie/dashboard.webp")}" alt="Appie Sniper-dashboard met winkelkeuze en een ranglijst van koopjes" loading="lazy"></a><figcaption>Het dashboard: aanbiedingen voor de gekozen winkel.</figcaption></figure><figure><a href="${href("/images/appie/verspakketten.webp")}"><img src="${href("/images/appie/verspakketten.webp")}" alt="Verspakketten met voorgestelde aanvullende ingrediënten in Appie Sniper" loading="lazy"></a><figcaption>Verspakketten met matches op basis van trefwoordregels.</figcaption></figure></div>
  ${study.figures.map(f=>`<section class="case-figure"><div class="case-copy"><h2>${escapeHtml(f.title)}</h2><p>${escapeHtml(f.text)}</p></div><figure><a href="${href(`/images/appie/${f.image}.svg`)}" aria-label="Vergroot: ${escapeHtml(f.title)}"><img src="${href(`/images/appie/${f.image}.svg`)}" alt="${escapeHtml(f.alt)}" loading="lazy"></a><figcaption>Klik op de grafiek om deze te vergroten.</figcaption></figure></section>`).join("")}
  <aside class="case-method"><h2>Over de data</h2><p>${escapeHtml(study.method)}</p><div class="case-links"><a class="underlined-link" href="${escapeHtml(study.sourceUrl)}">Code op GitHub ↗</a><a class="underlined-link" href="${escapeHtml(study.dataUrl)}">Bekijk de brondata ↗</a></div></aside>
