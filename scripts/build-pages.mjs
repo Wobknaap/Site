@@ -69,7 +69,7 @@ function layout({ title, description, active, body, embedPdf = false }) {
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self'; font-src 'self'; object-src ${embedPdf ? "'self'" : "'none'"}; base-uri 'none'; form-action 'none'; connect-src 'none'; frame-src ${embedPdf ? "'self'" : "'none'"}; script-src 'none'">
   <title>${escapeHtml(title)}</title>
   <link rel="icon" href="${href("/favicon.svg")}">
-  <link rel="stylesheet" href="${href("/assets/site-v6.css")}">
+  <link rel="stylesheet" href="${href("/assets/site-v7.css")}">
 </head>
 <body>${header(active)}${body}${footer()}</body>
 </html>`;
@@ -108,8 +108,9 @@ const sourceCss = await readFile(path.join(projectRoot, "app/globals.css"), "utf
 const staticCss = sourceCss
   .replace(/\/\* manager:start \*\/[\s\S]*?\/\* manager:end \*\//g, "")
   .replaceAll("var(--font-geist-sans)", "Arial, sans-serif")
-  .replaceAll("var(--font-geist-mono)", '"Courier New", monospace');
-await writeFile(path.join(outputRoot, "assets/site-v6.css"), staticCss);
+  .replaceAll("var(--font-geist-mono)", '"Courier New", monospace')
+  .replaceAll('url("/images/', 'url("../images/');
+await writeFile(path.join(outputRoot, "assets/site-v7.css"), staticCss);
 await writeFile(path.join(outputRoot, ".nojekyll"), "");
 await writeFile(path.join(outputRoot, "robots.txt"), `User-agent: *\nAllow: ${href("/")}\nDisallow: ${href("/beheer/")}\n`);
 

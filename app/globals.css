@@ -13,10 +13,12 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-geist-sans), Arial, sans-serif; }
+body { margin: 0; background: var(--paper) url("/images/notebook-paper-bg.webp") center top / cover fixed; color: var(--ink); font-family: var(--font-geist-sans), Arial, sans-serif; }
 a { color: inherit; text-decoration: none; }
 img { display: block; width: 100%; }
 ::selection { background: var(--forest); color: var(--paper); }
+
+main#top { position: relative; isolation: isolate; width: min(1320px, calc(100% - 32px)); margin: 24px auto 30px; background: url("/images/torn-content-sheet.webp") center / 100% 100% no-repeat; }
 
 .page-wrap { width: min(1180px, calc(100% - 64px)); margin-inline: auto; }
 .site-header { height: 76px; width: min(1180px, calc(100% - 64px)); margin-inline: auto; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--line); }
@@ -213,6 +215,8 @@ figcaption { display: flex; justify-content: space-between; gap: 18px; margin-to
 }
 
 @media (max-width: 650px) {
+  body { background-attachment: scroll; background-size: auto 100vh; }
+  main#top { width: calc(100% - 12px); margin-block: 14px 22px; }
   .page-wrap, .site-header, .site-footer { width: min(100% - 36px, 1180px); }
   .site-header { height: auto; min-height: 90px; align-items: center; padding-block: 14px; gap: 8px; }
   .wordmark { width: 33vw; max-width: 142px; padding-top: 3px; }
