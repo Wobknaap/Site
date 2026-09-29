@@ -90,7 +90,7 @@ figcaption { display: flex; justify-content: space-between; gap: 18px; margin-to
 .article-copy h2 a { display: block; }
 .article-title-image { display: block; width: auto; max-width: 100%; height: auto; max-height: 64px; }
 .article-title-image--2 { max-height: 128px; }
-.article-title-image--3 { max-height: 192px; }
+.article-title-image--3 { max-height: 128px; }
 .project-card .article-title-image { max-height: 82px; }
 .article-page h1 .article-title-image { max-height: 150px; }
 .article-page h1 .article-title-image--2 { max-height: 250px; }
@@ -262,7 +262,7 @@ figcaption { display: flex; justify-content: space-between; gap: 18px; margin-to
   .article-copy h2 { grid-column: auto; }
   .article-title-image { max-height: 58px; }
   .article-title-image--2 { max-height: 116px; }
-  .article-title-image--3 { max-height: 174px; }
+  .article-title-image--3 { max-height: 116px; }
   .article-page h1 .article-title-image { max-height: 90px; }
   .article-page h1 .article-title-image--2 { max-height: 180px; }
   .article-page h1 .article-title-image--3 { max-height: 270px; }
