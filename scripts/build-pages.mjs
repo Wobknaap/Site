@@ -53,7 +53,7 @@ function header(active) {
     ["over", "/over/", "Over mij"],
   ];
   return `<header class="site-header">
-    <a class="wordmark" href="${href("/")}" aria-label="Startpagina Wob Knaap">Wob Knaap</a>
+    <a class="wordmark" href="${href("/")}" aria-label="Startpagina Wob Knaap"><img src="${href("/images/wob-knaap-signature.webp")}" alt="Wob Knaap"></a>
     <nav aria-label="Hoofdnavigatie">${links.map(([key, url, label]) => `<a${active === key ? ' class="active" aria-current="page"' : ""} href="${href(url)}">${label}</a>`).join("")}</nav>
   </header>`;
 }
