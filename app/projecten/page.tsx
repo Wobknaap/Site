@@ -12,7 +12,7 @@ export default function ProjectsPage() {
     <SiteHeader active="projecten" />
     <header className="page-intro projects-intro page-wrap">
       <p className="eyebrow">Data · taal · technologie</p>
-      <h1>Persoonlijke projecten</h1>
+      <h1 className="handwritten-heading projects-handwritten-heading"><img className="torn-paper" src="/images/nav-projecten.webp" alt="Persoonlijke projecten" /></h1>
     </header>
     <section className="project-grid page-wrap" aria-label="Projecten">
       {projects.map((project) => <article className="project-card" key={project.title}>

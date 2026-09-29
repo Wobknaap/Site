@@ -9,7 +9,7 @@ export default function Home() {
 
       <section className="home-latest page-wrap">
         <div className="section-heading home-section-heading">
-          <h1>Artikelen</h1>
+          <h1 className="handwritten-heading home-handwritten-heading"><img className="torn-paper" src="/images/nav-artikelen.webp" alt="Artikelen" /></h1>
           <a className="underlined-link" href="/artikelen">Alle artikelen</a>
         </div>
         <ArticleList items={featuredArticles.slice(0, 4)} />

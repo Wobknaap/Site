@@ -1,11 +1,11 @@
 :root {
-  --paper: #f0eee2;
-  --paper-dark: #e5e3d4;
-  --ink: #17241b;
-  --forest: #264534;
-  --moss: #667963;
-  --orange: #c65c3c;
-  --line: rgba(23, 36, 27, .19);
+  --paper: #f7f8fc;
+  --paper-dark: #e8edf6;
+  --ink: #1b2740;
+  --forest: #294578;
+  --moss: #5e7398;
+  --orange: #496da8;
+  --line: rgba(27, 39, 64, .19);
   --serif: Iowan Old Style, Baskerville, "Times New Roman", serif;
   --font-geist-sans: Arial, Helvetica, sans-serif;
   --font-geist-mono: "Courier New", Courier, monospace;
@@ -23,12 +23,19 @@ img { display: block; width: 100%; }
 .wordmark { display: flex; align-items: center; flex: 0 0 auto; width: 180px; }
 .wordmark img { width: 100%; height: auto; }
 .site-header nav { display: flex; align-items: center; gap: 14px; }
-.site-header nav a { position: relative; display: block; flex: 0 0 138px; height: 48px; padding: 3px; overflow: hidden; background: #fffefa; border: 1px solid rgba(23, 36, 27, .48); clip-path: polygon(0 13%, 5% 8%, 10% 12%, 16% 4%, 21% 9%, 27% 6%, 34% 14%, 41% 7%, 48% 11%, 55% 4%, 63% 8%, 71% 3%, 79% 10%, 87% 5%, 95% 11%, 100% 7%, 97% 20%, 100% 29%, 96% 37%, 99% 45%, 96% 53%, 100% 64%, 96% 73%, 99% 84%, 94% 91%, 87% 88%, 80% 95%, 73% 90%, 66% 98%, 59% 91%, 52% 96%, 44% 90%, 37% 97%, 29% 92%, 21% 99%, 14% 91%, 7% 96%, 2% 90%, 4% 80%, 1% 69%, 5% 60%, 2% 49%, 5% 39%, 1% 29%, 4% 20%); filter: drop-shadow(0 4px 4px rgba(20, 27, 21, .36)); transform: rotate(-1deg); transition: filter .18s ease; }
+.torn-paper { background: #fff; border: 1px solid rgba(27, 39, 64, .55); clip-path: polygon(0 13%, 5% 8%, 10% 12%, 16% 4%, 21% 9%, 27% 6%, 34% 14%, 41% 7%, 48% 11%, 55% 4%, 63% 8%, 71% 3%, 79% 10%, 87% 5%, 95% 11%, 100% 7%, 97% 20%, 100% 29%, 96% 37%, 99% 45%, 96% 53%, 100% 64%, 96% 73%, 99% 84%, 94% 91%, 87% 88%, 80% 95%, 73% 90%, 66% 98%, 59% 91%, 52% 96%, 44% 90%, 37% 97%, 29% 92%, 21% 99%, 14% 91%, 7% 96%, 2% 90%, 4% 80%, 1% 69%, 5% 60%, 2% 49%, 5% 39%, 1% 29%, 4% 20%); filter: drop-shadow(0 4px 4px rgba(27, 39, 64, .32)); }
+.site-header nav a { position: relative; display: block; flex: 0 0 138px; height: 48px; padding: 3px; overflow: hidden; transform: rotate(-1deg); transition: filter .18s ease; }
+.handwritten-heading { margin: 0; font-size: 0; line-height: 0; }
+.home-section-heading .handwritten-heading, .page-intro h1.handwritten-heading { font: 0/0 sans-serif; letter-spacing: 0; }
+.handwritten-heading img { display: block; height: auto; padding: 3px; mix-blend-mode: multiply; }
+.home-handwritten-heading img { width: clamp(210px, 22vw, 260px); }
+.archive-handwritten-heading img { width: clamp(320px, 36vw, 450px); }
+.projects-handwritten-heading img { width: clamp(360px, 48vw, 590px); }
 .site-header nav a:nth-child(2) { transform: rotate(1.2deg); }
 .site-header nav a:nth-child(3) { transform: rotate(-.5deg); }
 .site-header nav a:nth-child(4) { transform: rotate(1deg); }
 .site-header nav a img { display: block; width: 100%; height: 100%; object-fit: cover; mix-blend-mode: multiply; }
-.site-header nav a:hover { filter: drop-shadow(0 7px 6px rgba(20, 27, 21, .48)); }
+.site-header nav a:hover { filter: drop-shadow(0 7px 6px rgba(20, 27, 21, .54)); }
 
 .terminal-banner { height: clamp(190px, 20vw, 270px); overflow: hidden; background: #0d180d; }
 .terminal-banner > img { height: 100%; object-fit: cover; }

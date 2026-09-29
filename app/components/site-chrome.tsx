@@ -13,7 +13,7 @@ export function SiteHeader({ active }: { active?: ActivePage }) {
       <a className="wordmark" href="/" aria-label="Startpagina Wob Knaap"><img src="/images/wob-knaap-signature.webp" alt="Wob Knaap" /></a>
       <nav aria-label="Hoofdnavigatie">
         {links.map(([key, href, label, image]) => (
-          <a className={active === key ? "active" : ""} href={href} key={key} aria-current={active === key ? "page" : undefined}><img src={image} alt={label} /></a>
+          <a className={`torn-paper ${active === key ? "active" : ""}`} href={href} key={key} aria-current={active === key ? "page" : undefined}><img src={image} alt={label} /></a>
         ))}
       </nav>
     </header>

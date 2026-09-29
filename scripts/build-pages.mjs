@@ -54,7 +54,7 @@ function header(active) {
   ];
   return `<header class="site-header">
     <a class="wordmark" href="${href("/")}" aria-label="Startpagina Wob Knaap"><img src="${href("/images/wob-knaap-signature.webp")}" alt="Wob Knaap"></a>
-    <nav aria-label="Hoofdnavigatie">${links.map(([key, url, label, image]) => `<a${active === key ? ' class="active" aria-current="page"' : ""} href="${href(url)}"><img src="${href(image)}" alt="${label}"></a>`).join("")}</nav>
+    <nav aria-label="Hoofdnavigatie">${links.map(([key, url, label, image]) => `<a class="torn-paper${active === key ? ' active' : ""}"${active === key ? ' aria-current="page"' : ""} href="${href(url)}"><img src="${href(image)}" alt="${label}"></a>`).join("")}</nav>
   </header>`;
 }
 
@@ -69,12 +69,12 @@ function layout({ title, description, active, body, embedPdf = false }) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="${escapeHtml(description)}">
-  <meta name="theme-color" content="#264534">
+  <meta name="theme-color" content="#294578">
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self'; font-src 'self'; object-src ${embedPdf ? "'self'" : "'none'"}; base-uri 'none'; form-action 'none'; connect-src 'none'; frame-src ${embedPdf ? "'self'" : "'none'"}; script-src 'none'">
   <title>${escapeHtml(title)}</title>
   <link rel="icon" href="${href("/favicon.svg")}">
-  <link rel="stylesheet" href="${href("/assets/site-v4.css")}">
+  <link rel="stylesheet" href="${href("/assets/site-v5.css")}">
 </head>
 <body>${header(active)}${body}${footer()}</body>
 </html>`;
@@ -114,7 +114,7 @@ const staticCss = sourceCss
   .replace(/\/\* manager:start \*\/[\s\S]*?\/\* manager:end \*\//g, "")
   .replaceAll("var(--font-geist-sans)", "Arial, sans-serif")
   .replaceAll("var(--font-geist-mono)", '"Courier New", monospace');
-await writeFile(path.join(outputRoot, "assets/site-v4.css"), staticCss);
+await writeFile(path.join(outputRoot, "assets/site-v5.css"), staticCss);
 await writeFile(path.join(outputRoot, ".nojekyll"), "");
 await writeFile(path.join(outputRoot, "robots.txt"), `User-agent: *\nAllow: ${href("/")}\nDisallow: ${href("/beheer/")}\n`);
 
@@ -124,7 +124,7 @@ await writeRoute("/", layout({
   active: "start",
   body: `<main id="top">
     <section class="home-latest page-wrap">
-      <div class="section-heading home-section-heading"><h1>Artikelen</h1><a class="underlined-link" href="${href("/artikelen/")}">Alle artikelen</a></div>
+      <div class="section-heading home-section-heading"><h1 class="handwritten-heading home-handwritten-heading"><img class="torn-paper" src="${href("/images/nav-artikelen.webp")}" alt="Artikelen"></h1><a class="underlined-link" href="${href("/artikelen/")}">Alle artikelen</a></div>
       ${articleList(featuredArticles.slice(0, 4))}
     </section>
     <section class="home-projects page-wrap">
@@ -149,7 +149,7 @@ await writeRoute("/projecten", layout({
   title: "Persoonlijke projecten · Wob Knaap",
   description: "Eigen projecten en onderzoek met data, taal en technologie.",
   active: "projecten",
-  body: `<main id="top"><header class="page-intro projects-intro page-wrap"><p class="eyebrow">Data · taal · technologie</p><h1>Persoonlijke projecten</h1></header><section class="project-grid page-wrap" aria-label="Projecten">${projects.map(project => `<article class="project-card"><p class="eyebrow">${escapeHtml(project.category)}</p><h2><a href="${escapeHtml(project.href.startsWith("https:") ? project.href : href(project.href + "/"))}">${escapeHtml(project.title)}</a></h2><p>${escapeHtml(project.description)}</p><div class="article-tags">${project.tags.map(tag => `<span class="article-tag">${escapeHtml(tag)}</span>`).join("")}</div><a class="underlined-link archive-link" href="${escapeHtml(project.href.startsWith("https:") ? project.href : href(project.href + "/"))}">${project.href.startsWith("https:") ? "Bekijk op GitHub ↗" : "Bekijk het project ↗"}</a></article>`).join("")}</section></main>`,
+  body: `<main id="top"><header class="page-intro projects-intro page-wrap"><p class="eyebrow">Data · taal · technologie</p><h1 class="handwritten-heading projects-handwritten-heading"><img class="torn-paper" src="${href("/images/nav-projecten.webp")}" alt="Persoonlijke projecten"></h1></header><section class="project-grid page-wrap" aria-label="Projecten">${projects.map(project => `<article class="project-card"><p class="eyebrow">${escapeHtml(project.category)}</p><h2><a href="${escapeHtml(project.href.startsWith("https:") ? project.href : href(project.href + "/"))}">${escapeHtml(project.title)}</a></h2><p>${escapeHtml(project.description)}</p><div class="article-tags">${project.tags.map(tag => `<span class="article-tag">${escapeHtml(tag)}</span>`).join("")}</div><a class="underlined-link archive-link" href="${escapeHtml(project.href.startsWith("https:") ? project.href : href(project.href + "/"))}">${project.href.startsWith("https:") ? "Bekijk op GitHub ↗" : "Bekijk het project ↗"}</a></article>`).join("")}</section></main>`,
 }));
 
 await writeRoute("/projecten/appie-sniper", layout({
