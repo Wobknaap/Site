@@ -9,7 +9,7 @@ export function SiteHeader({ active }: { active?: ActivePage }) {
 
   return (
     <header className="site-header">
-      <a className="wordmark" href="/" aria-label="Startpagina Wob Knaap"><img src="/images/wob-knaap-signature.webp" alt="Wob Knaap" /></a>
+      <a className="wordmark torn-paper" href="/" aria-label="Startpagina Wob Knaap"><img src="/images/wob-knaap-signature.webp" alt="Wob Knaap" /></a>
       <nav aria-label="Hoofdnavigatie">
         {links.map(([key, href, label, image]) => (
           <a className={`torn-paper ${active === key ? "active" : ""}`} href={href} key={key} aria-current={active === key ? "page" : undefined}><img src={image} alt={label} /></a>
