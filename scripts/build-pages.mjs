@@ -8,6 +8,7 @@ const basePath = rawBasePath === "/" ? "" : rawBasePath.replace(/\/$/, "");
 const content = JSON.parse(await readFile(path.join(projectRoot, "app/content-data.json"), "utf8"));
 const articles = content.articles.filter((article) => article.status === "published" || (article.status === "external" && article.sourceUrl));
 
+const bep = JSON.parse(await readFile(path.join(projectRoot, "app/bep-case-study.json"), "utf8"));
 const study = JSON.parse(await readFile(path.join(projectRoot, "app/appie-case-study.json"), "utf8"));
 const projects = JSON.parse(await readFile(path.join(projectRoot, "app/projects-data.json"), "utf8"));
 const cursorArticles = articles.filter(article => article.source === "Cursor");
@@ -61,7 +62,7 @@ function footer() {
   return `<footer class="site-footer"><p>© 2026</p><div><a href="#top">Naar boven ↑</a></div></footer>`;
 }
 
-function layout({ title, description, active, body }) {
+function layout({ title, description, active, body, embedPdf = false }) {
   return `<!doctype html>
 <html lang="nl">
 <head>
@@ -70,7 +71,7 @@ function layout({ title, description, active, body }) {
   <meta name="description" content="${escapeHtml(description)}">
   <meta name="theme-color" content="#264534">
   <meta name="referrer" content="no-referrer">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; connect-src 'none'; frame-src 'none'; script-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self'; font-src 'self'; object-src ${embedPdf ? "'self'" : "'none'"}; base-uri 'none'; form-action 'none'; connect-src 'none'; frame-src ${embedPdf ? "'self'" : "'none'"}; script-src 'none'">
   <title>${escapeHtml(title)}</title>
   <link rel="icon" href="${href("/favicon.svg")}">
   <link rel="stylesheet" href="${href("/assets/site-v3.css")}">
@@ -105,6 +106,7 @@ async function writeRoute(route, html) {
 await rm(outputRoot, { recursive: true, force: true });
 await mkdir(path.join(outputRoot, "assets"), { recursive: true });
 await cp(path.join(projectRoot, "public/images"), path.join(outputRoot, "images"), { recursive: true });
+await cp(path.join(projectRoot, "public/documents"), path.join(outputRoot, "documents"), { recursive: true });
 await cp(path.join(projectRoot, "public/favicon.svg"), path.join(outputRoot, "favicon.svg"));
 
 const sourceCss = await readFile(path.join(projectRoot, "app/globals.css"), "utf8");
@@ -154,6 +156,16 @@ await writeRoute("/projecten/appie-sniper", layout({
  <div class="case-screens"><figure><a href="${href("/images/appie/dashboard.webp")}"><img src="${href("/images/appie/dashboard.webp")}" alt="Appie Sniper-dashboard met winkelkeuze en een ranglijst van koopjes" loading="lazy"></a><figcaption>Het dashboard: aanbiedingen voor de gekozen winkel.</figcaption></figure><figure><a href="${href("/images/appie/verspakketten.webp")}"><img src="${href("/images/appie/verspakketten.webp")}" alt="Verspakketten met voorgestelde aanvullende ingrediënten in Appie Sniper" loading="lazy"></a><figcaption>Verspakketten met matches op basis van trefwoordregels.</figcaption></figure></div>
  ${study.figures.map(f=>`<section class="case-figure"><div class="case-copy"><h2>${escapeHtml(f.title)}</h2><p>${escapeHtml(f.text)}</p></div><figure><a href="${href(`/images/appie/${f.image}.svg`)}" aria-label="Vergroot: ${escapeHtml(f.title)}"><img src="${href(`/images/appie/${f.image}.svg`)}" alt="${escapeHtml(f.alt)}" loading="lazy"></a><figcaption>Klik op de grafiek om deze te vergroten.</figcaption></figure></section>`).join("")}
  <aside class="case-method"><h2>Over de data</h2><p>${escapeHtml(study.method)}</p><div class="case-links"><a class="underlined-link" href="${escapeHtml(study.sourceUrl)}">Code op GitHub ↗</a><a class="underlined-link" href="${escapeHtml(study.dataUrl)}">Bekijk de brondata ↗</a></div></aside>
+ </article></main>`,
+}));
+
+await writeRoute("/projecten/thematic-structures-of-deception", layout({
+ title: `${bep.title} · Wob Knaap`, description: bep.intro, active: "projecten", embedPdf: true,
+ body: `<main id="top"><article class="case-study page-wrap">
+ <a class="back-link" href="${href("/projecten/")}">← Persoonlijke projecten</a>
+ <header class="case-intro"><p class="eyebrow">Bacheloronderzoek · TU/e · Data Science</p><h1>${escapeHtml(bep.title)}</h1><p class="bep-subtitle">${escapeHtml(bep.subtitle)}</p><p class="article-deck">${escapeHtml(bep.intro)}</p></header>
+ <section class="case-copy bep-summary" aria-label="Over het onderzoek">${bep.paragraphs.map(p=>`<p>${escapeHtml(p)}</p>`).join("")}<div class="article-tags">${bep.tags.map(t=>`<span class="article-tag">${escapeHtml(t)}</span>`).join("")}</div></section>
+ <section class="bep-document" aria-labelledby="document-title"><h2 id="document-title">Lees de volledige scriptie</h2><p>Engelstalig · ${bep.pages} pagina’s · Inclusief alle figuren en bijlagen</p><div class="case-links"><a class="underlined-link" href="${href(bep.pdf)}" target="_blank" rel="noreferrer">Open de PDF ↗</a><a class="underlined-link" href="${href(bep.pdf)}" download="Wob-Knaap-BEP.pdf">Download de scriptie ↓</a><a class="underlined-link" href="${escapeHtml(bep.codeUrl)}">Code op GitHub ↗</a></div><p class="pdf-help">Wordt de PDF niet weergegeven? Open of download de scriptie via de links hierboven.</p><iframe class="pdf-viewer" src="${href(bep.pdf)}#view=FitH" title="Volledige bachelorscriptie van Wob Knaap, inclusief figuren en bijlagen" loading="lazy"></iframe></section>
  </article></main>`,
 }));
 

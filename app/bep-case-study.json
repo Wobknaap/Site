@@ -1,0 +1,20 @@
+{
+  "title": "Thematic Structures of Deception",
+  "subtitle": "A Topic Modeling Analysis of Embedded Lies by Motivational Context",
+  "intro": "Wat vertelt de inhoud van een leugen over de reden om te liegen? In mijn bacheloronderzoek Data Science aan de TU/e onderzocht ik hoe motivatie samenhangt met de thema’s in leugens.",
+  "paragraphs": [
+    "Met een BERTopic-pipeline analyseerde ik 3.256 leugens uit 657 verhalen. Transformer-embeddings, UMAP en HDBSCAN vormen de basis voor het clusteren van semantisch verwante teksten. Met Optuna optimaliseerde ik de modellen op samenhang en diversiteit van de topics.",
+    "Vervolgens koppelde ik de gevonden thema’s aan een bestaande inhoudelijke taxonomie. Zo vergeleek ik leugens waarmee iemand iets wil bereiken met leugens waarmee iemand een negatieve uitkomst probeert te vermijden. De volledige Engelstalige scriptie staat hieronder, inclusief figuren, tabellen, referenties en bijlagen."
+  ],
+  "pdf": "/documents/wob-knaap-bep.pdf",
+  "pages": 25,
+  "tags": [
+    "NLP",
+    "BERTopic",
+    "Transformer-embeddings",
+    "UMAP",
+    "HDBSCAN",
+    "Optuna"
+  ],
+  "codeUrl": "https://github.com/Wobknaap/BEP_1490621"
+}
