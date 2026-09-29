@@ -31,6 +31,10 @@ img { display: block; width: 100%; }
 .home-handwritten-heading img { width: clamp(210px, 22vw, 260px); }
 .archive-handwritten-heading img { width: clamp(320px, 36vw, 450px); }
 .projects-handwritten-heading img { width: clamp(360px, 48vw, 590px); }
+.home-directory { min-height: calc(100svh - 220px); display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(32px, 8vw, 120px); padding-block: 50px; }
+.home-directory a { display: grid; place-items: center; }
+.home-directory img { width: clamp(250px, 36vw, 460px); height: auto; transition: transform .2s ease, filter .2s ease; }
+.home-directory a:hover img { transform: rotate(-1deg) translateY(-3px); filter: drop-shadow(0 8px 7px rgba(27, 39, 64, .25)); }
 .site-header nav a:nth-child(2) { transform: rotate(1.2deg); }
 .site-header nav a:nth-child(3) { transform: rotate(-.5deg); }
 .site-header nav a:nth-child(4) { transform: rotate(1deg); }
@@ -214,6 +218,8 @@ figcaption { display: flex; justify-content: space-between; gap: 18px; margin-to
   .wordmark { width: 33vw; max-width: 142px; padding-top: 3px; }
   .site-header nav { display: grid; width: 52vw; max-width: 220px; grid-template-columns: 1fr 1fr; gap: 5px 8px; }
   .site-header nav a { width: 100%; height: auto; aspect-ratio: 3 / 1; }
+  .home-directory { min-height: 0; grid-template-columns: 1fr; gap: 36px; padding-block: 60px 90px; }
+  .home-directory img { width: min(80vw, 390px); }
   .terminal-banner { height: 170px; }
   .home-hero { padding-block: 48px 54px; }
   .hero-copy { gap: 28px; }

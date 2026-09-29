@@ -11,10 +11,6 @@ const articles = content.articles.filter((article) => article.status === "publis
 const bep = JSON.parse(await readFile(path.join(projectRoot, "app/bep-case-study.json"), "utf8"));
 const study = JSON.parse(await readFile(path.join(projectRoot, "app/appie-case-study.json"), "utf8"));
 const projects = JSON.parse(await readFile(path.join(projectRoot, "app/projects-data.json"), "utf8"));
-const cursorArticles = articles.filter(article => article.source === "Cursor");
-const dawArticles = articles.filter(article => article.source === "De AI Workshop");
-const featuredArticles = Array.from({ length: 3 }, (_, index) => [dawArticles[index], cursorArticles[index]]).flat().filter(Boolean);
-
 const href = (value = "/") => `${basePath}${value === "/" ? "/" : value}`;
 const escapeHtml = (value = "") => String(value)
   .replaceAll("&", "&amp;")
@@ -74,7 +70,7 @@ function layout({ title, description, active, body, embedPdf = false }) {
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self'; font-src 'self'; object-src ${embedPdf ? "'self'" : "'none'"}; base-uri 'none'; form-action 'none'; connect-src 'none'; frame-src ${embedPdf ? "'self'" : "'none'"}; script-src 'none'">
   <title>${escapeHtml(title)}</title>
   <link rel="icon" href="${href("/favicon.svg")}">
-  <link rel="stylesheet" href="${href("/assets/site-v5.css")}">
+  <link rel="stylesheet" href="${href("/assets/site-v6.css")}">
 </head>
 <body>${header(active)}${body}${footer()}</body>
 </html>`;
@@ -114,7 +110,7 @@ const staticCss = sourceCss
   .replace(/\/\* manager:start \*\/[\s\S]*?\/\* manager:end \*\//g, "")
   .replaceAll("var(--font-geist-sans)", "Arial, sans-serif")
   .replaceAll("var(--font-geist-mono)", '"Courier New", monospace');
-await writeFile(path.join(outputRoot, "assets/site-v5.css"), staticCss);
+await writeFile(path.join(outputRoot, "assets/site-v6.css"), staticCss);
 await writeFile(path.join(outputRoot, ".nojekyll"), "");
 await writeFile(path.join(outputRoot, "robots.txt"), `User-agent: *\nAllow: ${href("/")}\nDisallow: ${href("/beheer/")}\n`);
 
@@ -122,20 +118,7 @@ await writeRoute("/", layout({
   title: "Wob Knaap · artikelen en projecten",
   description: "Artikelen en persoonlijke projecten van Wob Knaap.",
   active: "start",
-  body: `<main id="top">
-    <section class="home-latest page-wrap">
-      <div class="section-heading home-section-heading"><h1 class="handwritten-heading home-handwritten-heading"><img class="torn-paper" src="${href("/images/nav-artikelen.webp")}" alt="Artikelen"></h1><a class="underlined-link" href="${href("/artikelen/")}">Alle artikelen</a></div>
-      ${articleList(featuredArticles.slice(0, 4))}
-    </section>
-    <section class="home-projects page-wrap">
-      <h2>Projecten</h2>
-      <ul>
-        <li><a href="${href("/projecten/appie-sniper/")}">Wat verschijnt er in het afprijsrek?</a><span>Data · Python</span></li>
-        <li><a href="${href("/projecten/thematic-structures-of-deception/")}">Thematic Structures of Deception</a><span>Bachelor eindproject</span></li>
-      </ul>
-      <a class="underlined-link" href="${href("/projecten/")}">Alle projecten</a>
-    </section>
-  </main>`,
+  body: `<main id="top"><nav class="home-directory page-wrap" aria-label="Inhoud"><a href="${href("/artikelen/")}"><img class="torn-paper" src="${href("/images/nav-artikelen.webp")}" alt="Artikelen"></a><a href="${href("/projecten/")}"><img class="torn-paper" src="${href("/images/nav-projecten.webp")}" alt="Persoonlijke projecten"></a></nav></main>`,
 }));
 
 await writeRoute("/artikelen", layout({
