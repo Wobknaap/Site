@@ -12,8 +12,7 @@ export default function AboutPage() {
       <SiteHeader active="over" />
       <section className="about-page page-wrap">
         <div className="about-copy">
-          <p className="eyebrow">Over mij</p>
-          <h1>Over Wob Knaap.</h1>
+          <h1 className="handwritten-heading"><img className="torn-paper" src="/images/nav-over-mij.webp" alt="Over mij" /></h1>
           <div className="prose">
             <p>Ik studeer Data Science aan de TU/e. Sinds 2024 schrijf ik columns voor Cursor over studentenleven, onderwijs, technologie en Eindhoven.</p>
             <p>Op deze site houd ik mijn columns en langere artikelen bij, waaronder mijn stukken voor De AI Workshop.</p>
