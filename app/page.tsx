@@ -24,7 +24,7 @@ export default function Home() {
       <section className="home-latest page-wrap">
         <div className="section-heading">
           <div><span>01</span><p>Archief</p></div>
-          <h2>Artikelen van Cursor & DAW</h2>
+          <h2>Recent gepubliceerd</h2>
         </div>
         <ArticleList items={featuredArticles} />
         <a className="underlined-link archive-link" href="/artikelen">Alle artikelen bekijken ↗</a>

@@ -1,6 +1,6 @@
 {
   "title": "Wat verschijnt er in het afprijsrek?",
-  "intro": "Tijdreeksen hebben me altijd gefascineerd. Bij de Laatste Kans-koopjes van Albert Heijn vroeg ik me af: welke producten verschijnen hier eigenlijk, en zitten daar terugkerende patronen in? Die nieuwsgierigheid werd Appie Sniper: een eigen dashboard en een dataset om het aanbod door de tijd te volgen.",
+  "intro": "Time series data fascineert me. Voor dit project volgde ik hoe het Laatste Kans-aanbod bij Albert Heijn door de tijd verandert.",
   "stack": [
     "Python",
     "Requests",
@@ -11,11 +11,11 @@
     "CSV",
     "Streamlit & Altair"
   ],
-  "buildTitle": "Van losse aanbiedingen naar een tijdreeks",
+  "buildTitle": "Hoe het werkt",
   "build": [
-    "Ik bouwde een Python-script dat via de GraphQL-interface van AH het lokale Laatste Kans-aanbod ophaalt. Met Pandas zet ik de geneste antwoorden om naar een tabel met productnaam, merk, categorie, prijzen, korting en voorraad. Iedere meting krijgt een tijdstempel en wordt toegevoegd aan een CSV-bestand.",
-    "GitHub Actions voert het script volgens een halfuurschema uit. De feitelijke meetmomenten zijn onregelmatiger. Voor AH Woenselse Markt in Eindhoven verzamelde ik van 4 tot en met 25 februari 2026 in totaal 72.836 waarnemingen: 315 momentopnames met 1.324 verschillende productnamen.",
-    "Daarnaast bouwde ik een webdashboard met Flask, Jinja, HTML en CSS. Daarin kun je een winkel kiezen en Laatste Kans-aanbiedingen naast Bonusacties bekijken. Het dashboard koppelt aanbiedingen op opgeschoonde productnamen, rekent mogelijke kortingscombinaties door en zoekt met trefwoordregels aanvullende ingrediënten bij verspakketten. Voor de historische data maakte ik ook een apart dashboard met Streamlit en Altair."
+    "Ik bouwde voort op bestaande reverse-engineering van de AH-app-API. De documentatie van jabbink beschrijft onder meer de app-authenticatie. Het project appie-go van gwillem bevat een GraphQL-schema op basis van een MITM-dump. Met Python en Requests vraag ik het Laatste Kans-aanbod per winkel op. Pandas zet de API-antwoorden om naar productgegevens; elke meting krijgt een tijdstempel en gaat naar een CSV-bestand.",
+    "GitHub Actions start het script iedere dertig minuten. De werkelijke meetmomenten verschillen. Voor de Woenselse Markt in Eindhoven bevat de dataset van 4 tot en met 25 februari 2026 315 momentopnames, 72.836 waarnemingen en 1.324 productnamen.",
+    "Met Flask, Jinja, HTML en CSS maakte ik een dashboard om winkels, aanbiedingen en mogelijke combinaties met Bonusacties te bekijken. Trefwoordregels koppelen verspakketten aan aanvullende aanbiedingen. Voor de historische data bouwde ik een apart dashboard met Streamlit en Altair."
   ],
   "figures": [
     {
@@ -39,5 +39,15 @@
   ],
   "method": "Dit is een verkennende analyse van één winkel over 22 dagen. Een waarneming is geen verkoop. Productnamen worden per meetmoment één keer geteld; dezelfde naam kan verschillende verpakkingen of nieuwe voorraad betreffen. De meetfrequentie varieert en de eerste en laatste dag zijn onvolledig. Dagen volgen de opgeslagen tijdstempels, waarin geen tijdzone staat. Een structureel weekpatroon vraagt om een langere meetperiode.",
   "sourceUrl": "https://github.com/Wobknaap/Appie-App",
-  "dataUrl": "https://github.com/Wobknaap/Appie-App/blob/39b65f83db54ff937c0d43aed3a48950eca76e7e/laatste_kans_trends.csv"
+  "dataUrl": "https://github.com/Wobknaap/Appie-App/blob/39b65f83db54ff937c0d43aed3a48950eca76e7e/laatste_kans_trends.csv",
+  "apiSources": [
+    {
+      "label": "jabbink: documentatie van de AH-app-API",
+      "url": "https://gist.github.com/jabbink/8bfa44bdfc535d696b340c46d228fdd1"
+    },
+    {
+      "label": "gwillem: appie-go en het GraphQL-schema",
+      "url": "https://github.com/gwillem/appie-go"
+    }
+  ]
 }

@@ -2,7 +2,7 @@
   {
     "title": "Appie Sniper",
     "category": "Data pipeline & dashboard",
-    "description": "Welke producten verschijnen in het Laatste Kans-aanbod, en welke patronen keren terug? Een eigen dashboard en datapipeline, met 315 meetmomenten als basis voor een verkennende tijdreeksanalyse.",
+    "description": "Een Python-script verzamelt het Laatste Kans-aanbod bij Albert Heijn. Een dashboard laat zien welke producten verschijnen en terugkeren.",
     "tags": [
       "Python",
       "Pandas",
@@ -15,7 +15,7 @@
   {
     "title": "Thematic Structures of Deception",
     "category": "Bacheloronderzoek · Data Science",
-    "description": "Onderzoek naar thematische patronen in leugens met natural language processing. Met BERTopic, transformer-embeddings en clustering analyseerde ik 3.256 leugens in negen narratieve contexten. De thema’s zijn met automatische evaluatie en menselijke beoordeling onderzocht.",
+    "description": "Bacheloronderzoek naar thematische patronen in leugens, met BERTopic, UMAP, HDBSCAN en Optuna.",
     "tags": [
       "NLP",
       "BERTopic",

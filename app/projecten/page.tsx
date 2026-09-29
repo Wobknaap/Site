@@ -10,10 +10,9 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return <main id="top">
     <SiteHeader active="projecten" />
-    <header className="page-intro page-wrap">
+    <header className="page-intro projects-intro page-wrap">
       <p className="eyebrow">Data · taal · technologie</p>
       <h1>Persoonlijke projecten</h1>
-      <p>Van een eigen datapipeline tot onderzoek naar taal. Projecten waarin ik ideeën uitwerk en nieuwe technieken toepas.</p>
     </header>
     <section className="project-grid page-wrap" aria-label="Projecten">
       {projects.map((project) => <article className="project-card" key={project.title}>
