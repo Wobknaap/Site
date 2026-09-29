@@ -43,7 +43,6 @@ function markdown(value) {
 
 function header(active) {
   const links = [
-    ["start", "/", "Start", "/images/nav-start.webp"],
     ["artikelen", "/artikelen/", "Artikelen", "/images/nav-artikelen.webp"],
     ["projecten", "/projecten/", "Persoonlijke projecten", "/images/nav-projecten.webp"],
     ["over", "/over/", "Over mij", "/images/nav-over-mij.webp"],

@@ -2,7 +2,6 @@ type ActivePage = "start" | "artikelen" | "projecten" | "over";
 
 export function SiteHeader({ active }: { active?: ActivePage }) {
   const links: Array<[ActivePage, string, string, string]> = [
-    ["start", "/", "Start", "/images/nav-start.webp"],
     ["artikelen", "/artikelen", "Artikelen", "/images/nav-artikelen.webp"],
     ["projecten", "/projecten", "Persoonlijke projecten", "/images/nav-projecten.webp"],
     ["over", "/over", "Over mij", "/images/nav-over-mij.webp"],
