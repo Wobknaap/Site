@@ -22,9 +22,13 @@ img { display: block; width: 100%; }
 .site-header { height: 76px; width: min(1180px, calc(100% - 64px)); margin-inline: auto; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--line); }
 .wordmark { display: flex; align-items: center; flex: 0 0 auto; width: 180px; }
 .wordmark img { width: 100%; height: auto; }
-.site-header nav { display: flex; gap: 34px; font: 10px var(--font-geist-mono); text-transform: uppercase; letter-spacing: .11em; }
-.site-header nav a { padding: 8px 0; opacity: .55; border-bottom: 1px solid transparent; }
-.site-header nav a:hover, .site-header nav a.active { opacity: 1; border-color: var(--ink); }
+.site-header nav { display: flex; align-items: center; gap: 12px; }
+.site-header nav a { position: relative; display: block; flex: 0 0 126px; height: 44px; overflow: hidden; clip-path: polygon(0 8%, 5% 4%, 10% 7%, 15% 2%, 21% 6%, 27% 3%, 33% 7%, 39% 2%, 46% 6%, 53% 3%, 60% 7%, 67% 2%, 74% 6%, 81% 3%, 88% 7%, 94% 3%, 100% 8%, 98% 17%, 100% 27%, 97% 37%, 100% 48%, 97% 58%, 100% 69%, 96% 78%, 99% 89%, 93% 96%, 86% 93%, 79% 98%, 71% 94%, 64% 98%, 56% 94%, 48% 99%, 40% 94%, 32% 98%, 24% 94%, 16% 99%, 9% 94%, 2% 98%, 4% 87%, 1% 77%, 4% 66%, 1% 55%, 4% 44%, 1% 33%, 4% 22%); filter: drop-shadow(1px 4px 3px rgba(20, 27, 21, .3)); transform: rotate(-1deg); transition: transform .18s ease, filter .18s ease; }
+.site-header nav a:nth-child(2) { transform: rotate(1.2deg); }
+.site-header nav a:nth-child(3) { transform: rotate(-.5deg); }
+.site-header nav a:nth-child(4) { transform: rotate(1deg); }
+.site-header nav a img { width: 100%; height: 100%; object-fit: cover; }
+.site-header nav a:hover, .site-header nav a.active { transform: translateY(-2px) rotate(0) scale(1.04); filter: drop-shadow(1px 6px 4px rgba(20, 27, 21, .38)); }
 
 .terminal-banner { height: clamp(190px, 20vw, 270px); overflow: hidden; background: #0d180d; }
 .terminal-banner > img { height: 100%; object-fit: cover; }
@@ -199,10 +203,10 @@ figcaption { display: flex; justify-content: space-between; gap: 18px; margin-to
 
 @media (max-width: 650px) {
   .page-wrap, .site-header, .site-footer { width: min(100% - 36px, 1180px); }
-  .site-header { height: auto; min-height: 90px; align-items: flex-start; padding-block: 18px; }
-  .wordmark { width: 150px; padding-top: 3px; }
-  .site-header nav { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 18px; }
-  .site-header nav a { padding: 4px 0; font-size: 8px; }
+  .site-header { height: auto; min-height: 90px; align-items: center; padding-block: 14px; gap: 8px; }
+  .wordmark { width: 33vw; max-width: 142px; padding-top: 3px; }
+  .site-header nav { display: grid; width: 52vw; max-width: 220px; grid-template-columns: 1fr 1fr; gap: 5px 8px; }
+  .site-header nav a { width: 100%; height: auto; aspect-ratio: 3 / 1; }
   .terminal-banner { height: 170px; }
   .home-hero { padding-block: 48px 54px; }
   .hero-copy { gap: 28px; }

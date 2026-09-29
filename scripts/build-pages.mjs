@@ -47,14 +47,14 @@ function markdown(value) {
 
 function header(active) {
   const links = [
-    ["start", "/", "Start"],
-    ["artikelen", "/artikelen/", "Artikelen"],
-    ["projecten", "/projecten/", "Persoonlijke projecten"],
-    ["over", "/over/", "Over mij"],
+    ["start", "/", "Start", "/images/nav-start.webp"],
+    ["artikelen", "/artikelen/", "Artikelen", "/images/nav-artikelen.webp"],
+    ["projecten", "/projecten/", "Persoonlijke projecten", "/images/nav-projecten.webp"],
+    ["over", "/over/", "Over mij", "/images/nav-over-mij.webp"],
   ];
   return `<header class="site-header">
     <a class="wordmark" href="${href("/")}" aria-label="Startpagina Wob Knaap"><img src="${href("/images/wob-knaap-signature.webp")}" alt="Wob Knaap"></a>
-    <nav aria-label="Hoofdnavigatie">${links.map(([key, url, label]) => `<a${active === key ? ' class="active" aria-current="page"' : ""} href="${href(url)}">${label}</a>`).join("")}</nav>
+    <nav aria-label="Hoofdnavigatie">${links.map(([key, url, label, image]) => `<a${active === key ? ' class="active" aria-current="page"' : ""} href="${href(url)}"><img src="${href(image)}" alt="${label}"></a>`).join("")}</nav>
   </header>`;
 }
 
