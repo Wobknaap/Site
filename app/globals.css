@@ -106,7 +106,7 @@ figcaption { display: flex; justify-content: space-between; gap: 18px; margin-to
 .page-intro h1 { margin: 0; font: 400 clamp(72px, 8vw, 126px)/.82 var(--serif); letter-spacing: -.06em; }
 .page-intro > p:last-child { max-width: 460px; margin: 0 0 3px; font: 20px/1.5 var(--serif); }
 .wide-image img { height: auto; aspect-ratio: 1800 / 680; object-fit: cover; }
-.archive-page { padding-block: 82px 120px; }
+.archive-page { padding-block: 82px 260px; }
 
 .notes-list { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--ink); margin-bottom: 160px; }
 .notes-list article { min-height: 300px; display: grid; grid-template-rows: auto 1fr auto; padding: 28px; border-bottom: 1px solid var(--line); }
@@ -257,7 +257,7 @@ figcaption { display: flex; justify-content: space-between; gap: 18px; margin-to
   .page-intro h1 { font-size: 68px; }
   .page-intro > p:last-child { font-size: 18px; }
   .wide-image img { height: auto; }
-  .archive-page { padding-block: 64px 90px; }
+  .archive-page { padding-block: 64px 320px; }
   .notes-list { grid-template-columns: 1fr; margin-bottom: 100px; }
   .notes-list article:nth-child(odd) { padding-left: 0; border-right: 0; }
   .notes-list article { min-height: 245px; padding-inline: 0; }
