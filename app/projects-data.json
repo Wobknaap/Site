@@ -1,0 +1,28 @@
+[
+  {
+    "title": "Appie Sniper",
+    "category": "Data pipeline & dashboard",
+    "description": "Welke producten verschijnen in het Laatste Kans-aanbod, en welke patronen keren terug? Een eigen dashboard en datapipeline, met 315 meetmomenten als basis voor een verkennende tijdreeksanalyse.",
+    "tags": [
+      "Python",
+      "Pandas",
+      "GraphQL",
+      "Flask",
+      "GitHub Actions"
+    ],
+    "href": "/projecten/appie-sniper"
+  },
+  {
+    "title": "Thematic Structures of Deception",
+    "category": "Bacheloronderzoek · Data Science",
+    "description": "Onderzoek naar thematische patronen in leugens met natural language processing. Met BERTopic, transformer-embeddings en clustering analyseerde ik 3.256 leugens in negen narratieve contexten. De thema’s zijn met automatische evaluatie en menselijke beoordeling onderzocht.",
+    "tags": [
+      "NLP",
+      "BERTopic",
+      "UMAP",
+      "HDBSCAN",
+      "Optuna"
+    ],
+    "href": "https://github.com/Wobknaap/BEP_1490621"
+  }
+]

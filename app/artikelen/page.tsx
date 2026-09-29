@@ -15,7 +15,7 @@ export default function ArticlesPage() {
       <header className="page-intro page-wrap">
         <p className="eyebrow">Archief · {articles.length} publicaties</p>
         <h1>Artikelen</h1>
-        <p>Columns, essays en analyses over technologie, onderwijs, beleid, studentenleven en andere onderwerpen die me bezighouden.</p>
+        <p>Columns en artikelen voor Cursor en De AI Workshop, bij elkaar in één overzicht. Over technologie, onderwijs, beleid, studentenleven en Eindhoven.</p>
       </header>
       <figure className="wide-image page-wrap">
         <img src="/images/hero-landscape.webp" alt="Een bankje in een groen landschap bij zonsopkomst" />

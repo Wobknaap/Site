@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Wob Knaap · artikelen en notities",
-  description: "Columns, essays en notities over technologie, onderwijs, beleid, studentenleven en andere onderwerpen.",
+  title: "Wob Knaap · artikelen en projecten",
+  description: "Columns, essays en projecten over technologie, onderwijs, beleid, studentenleven en andere onderwerpen.",
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
 };
 

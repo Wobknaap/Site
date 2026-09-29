@@ -1,6 +1,6 @@
 # Wob Knaap
 
-Persoonlijke site voor artikelen, columns en notities. De openbare site wordt statisch gebouwd en bevat geen database, accountsysteem of openbaar contentbeheer.
+Persoonlijke site voor artikelen, columns en projecten. De openbare site wordt statisch gebouwd en bevat geen database, accountsysteem of openbaar contentbeheer.
 
 ## Online site
 
@@ -8,7 +8,7 @@ GitHub Pages publiceert na iedere wijziging op `main` alleen deze onderdelen:
 
 - Start
 - Artikelen
-- Notities
+- Persoonlijke projecten
 - Over mij
 
 Het uiteindelijke adres is `https://wobknaap.github.io/Site/`.

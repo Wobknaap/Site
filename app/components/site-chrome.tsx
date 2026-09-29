@@ -1,10 +1,10 @@
-type ActivePage = "start" | "artikelen" | "notities" | "over";
+type ActivePage = "start" | "artikelen" | "projecten" | "over";
 
 export function SiteHeader({ active }: { active?: ActivePage }) {
   const links: Array<[ActivePage, string, string]> = [
     ["start", "/", "Start"],
     ["artikelen", "/artikelen", "Artikelen"],
-    ["notities", "/notities", "Notities"],
+    ["projecten", "/projecten", "Persoonlijke projecten"],
     ["over", "/over", "Over mij"],
   ];
 

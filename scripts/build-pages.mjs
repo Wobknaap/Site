@@ -8,6 +8,12 @@ const basePath = rawBasePath === "/" ? "" : rawBasePath.replace(/\/$/, "");
 const content = JSON.parse(await readFile(path.join(projectRoot, "app/content-data.json"), "utf8"));
 const articles = content.articles.filter((article) => article.status === "published" || (article.status === "external" && article.sourceUrl));
 
+const study = JSON.parse(await readFile(path.join(projectRoot, "app/appie-case-study.json"), "utf8"));
+const projects = JSON.parse(await readFile(path.join(projectRoot, "app/projects-data.json"), "utf8"));
+const cursorArticles = articles.filter(article => article.source === "Cursor");
+const dawArticles = articles.filter(article => article.source === "De AI Workshop");
+const featuredArticles = Array.from({ length: 3 }, (_, index) => [dawArticles[index], cursorArticles[index]]).flat().filter(Boolean);
+
 const href = (value = "/") => `${basePath}${value === "/" ? "/" : value}`;
 const escapeHtml = (value = "") => String(value)
   .replaceAll("&", "&amp;")
@@ -42,7 +48,7 @@ function header(active) {
   const links = [
     ["start", "/", "Start"],
     ["artikelen", "/artikelen/", "Artikelen"],
-    ["notities", "/notities/", "Notities"],
+    ["projecten", "/projecten/", "Persoonlijke projecten"],
     ["over", "/over/", "Over mij"],
   ];
   return `<header class="site-header">
@@ -111,16 +117,16 @@ await writeFile(path.join(outputRoot, ".nojekyll"), "");
 await writeFile(path.join(outputRoot, "robots.txt"), `User-agent: *\nAllow: ${href("/")}\nDisallow: ${href("/beheer/")}\n`);
 
 await writeRoute("/", layout({
-  title: "Wob Knaap · columns, essays en notities",
-  description: "Columns, essays en notities over technologie, onderwijs, beleid, studentenleven en andere onderwerpen.",
+  title: "Wob Knaap · columns, essays en projecten",
+  description: "Columns, essays en projecten over technologie, onderwijs, beleid, studentenleven en andere onderwerpen.",
   active: "start",
   body: `<main id="top">
     <section class="terminal-banner" aria-label="Groene glazen bouwstenen">
       <img src="${href("/images/glass-terminal-banner.webp")}" alt="Groene glazen bouwstenen met lichtreflecties">
     </section>
-    <section class="home-hero page-wrap"><div class="hero-copy"><h1>Columns, essays en notities.</h1><div class="hero-side"><p class="hero-deck">Over technologie, onderwijs, beleid, studentenleven en hoe die onderwerpen elkaar raken.</p><a class="underlined-link" href="${href("/artikelen/")}">Naar de artikelen ↗</a></div></div></section>
-    <section class="home-latest page-wrap"><div class="section-heading"><div><span>01</span><p>Archief</p></div><h2>Recent gepubliceerd</h2></div>${articleList(articles.slice(0, 3))}</section>
-    <section class="home-notes page-wrap"><div><p class="eyebrow">Notities</p><h2>Ideeën die nog niet af zijn.</h2><a class="underlined-link" href="${href("/notities/")}">Naar de notities ↗</a></div><figure><img src="${href("/images/hero-landscape.webp")}" alt="Een bankje in een groen landschap bij zonsopkomst" loading="lazy"><figcaption>Landschap bij zonsopkomst</figcaption></figure></section>
+    <section class="home-hero page-wrap"><div class="hero-copy"><h1>Columns, essays en projecten.</h1><div class="hero-side"><p class="hero-deck">Over technologie, onderwijs, beleid, studentenleven en hoe die onderwerpen elkaar raken.</p><a class="underlined-link" href="${href("/artikelen/")}">Naar de artikelen ↗</a></div></div></section>
+    <section class="home-latest page-wrap"><div class="section-heading"><div><span>01</span><p>Archief</p></div><h2>Artikelen van Cursor & DAW</h2></div>${articleList(featuredArticles)}<a class="underlined-link archive-link" href="${href("/artikelen/")}">Alle artikelen bekijken ↗</a></section>
+    <section class="home-projects page-wrap"><div><p class="eyebrow">Persoonlijke projecten</p><h2>Van idee naar toepassing.</h2><a class="underlined-link" href="${href("/projecten/")}">Bekijk mijn projecten ↗</a></div><figure><img src="${href("/images/hero-landscape.webp")}" alt="Een bankje in een groen landschap bij zonsopkomst" loading="lazy"><figcaption>Landschap bij zonsopkomst</figcaption></figure></section>
   </main>`,
 }));
 
@@ -128,14 +134,27 @@ await writeRoute("/artikelen", layout({
   title: "Artikelen · Wob Knaap",
   description: "Columns, essays en analyses over technologie, onderwijs, beleid, studentenleven en andere onderwerpen.",
   active: "artikelen",
-  body: `<main id="top"><header class="page-intro page-wrap"><p class="eyebrow">Archief · ${articles.length} publicaties</p><h1>Artikelen</h1><p>Columns, essays en analyses over technologie, onderwijs, beleid, studentenleven en andere onderwerpen die me bezighouden.</p></header><figure class="wide-image page-wrap"><img src="${href("/images/hero-landscape.webp")}" alt="Een bankje in een groen landschap bij zonsopkomst"><figcaption>Landschap bij zonsopkomst</figcaption></figure><section class="archive-page page-wrap">${articleList(articles)}</section></main>`,
+  body: `<main id="top"><header class="page-intro page-wrap"><p class="eyebrow">Archief · ${articles.length} publicaties</p><h1>Artikelen</h1><p>Columns en artikelen voor Cursor en De AI Workshop, bij elkaar in één overzicht. Over technologie, onderwijs, beleid, studentenleven en Eindhoven.</p></header><figure class="wide-image page-wrap"><img src="${href("/images/hero-landscape.webp")}" alt="Een bankje in een groen landschap bij zonsopkomst"><figcaption>Landschap bij zonsopkomst</figcaption></figure><section class="archive-page page-wrap">${articleList(articles)}</section></main>`,
 }));
 
-await writeRoute("/notities", layout({
-  title: "Notities · Wob Knaap",
-  description: "Notities van Wob Knaap die nog niet zijn uitgewerkt tot een artikel.",
-  active: "notities",
-  body: `<main id="top"><header class="page-intro page-wrap"><p class="eyebrow">In ontwikkeling</p><h1>Notities</h1><p>${content.notes.length === 0 ? "Nog geen notities gepubliceerd." : "Losse ideeën die nog niet zijn uitgewerkt tot een artikel."}</p></header>${content.notes.length > 0 ? `<section class="notes-list page-wrap">${content.notes.map((note, index) => `<article><span>${String(index + 1).padStart(2, "0")}</span><p>${escapeHtml(note.text)}</p><time>${escapeHtml(note.date)}</time></article>`).join("")}</section>` : ""}</main>`,
+await writeRoute("/projecten", layout({
+  title: "Persoonlijke projecten · Wob Knaap",
+  description: "Eigen projecten en onderzoek met data, taal en technologie.",
+  active: "projecten",
+  body: `<main id="top"><header class="page-intro page-wrap"><p class="eyebrow">Data · taal · technologie</p><h1>Persoonlijke projecten</h1><p>Van een eigen datapipeline tot onderzoek naar taal. Projecten waarin ik ideeën uitwerk en nieuwe technieken toepas.</p></header><section class="project-grid page-wrap" aria-label="Projecten">${projects.map(project => `<article class="project-card"><p class="eyebrow">${escapeHtml(project.category)}</p><h2><a href="${escapeHtml(project.href.startsWith("https:") ? project.href : href(project.href + "/"))}">${escapeHtml(project.title)}</a></h2><p>${escapeHtml(project.description)}</p><div class="article-tags">${project.tags.map(tag => `<span class="article-tag">${escapeHtml(tag)}</span>`).join("")}</div><a class="underlined-link archive-link" href="${escapeHtml(project.href.startsWith("https:") ? project.href : href(project.href + "/"))}">${project.href.startsWith("https:") ? "Bekijk op GitHub ↗" : "Bekijk het project ↗"}</a></article>`).join("")}</section></main>`,
+}));
+
+await writeRoute("/projecten/appie-sniper", layout({
+ title: `${study.title} · Wob Knaap`, description: study.intro, active: "projecten",
+ body: `<main id="top"><article class="case-study page-wrap">
+ <a class="back-link" href="${href("/projecten/")}">← Persoonlijke projecten</a>
+ <header class="case-intro"><p class="eyebrow">Appie Sniper · Persoonlijk project · 2026</p><h1>${escapeHtml(study.title)}</h1><p class="article-deck">${escapeHtml(study.intro)}</p></header>
+ <div class="case-stats"><div><strong>72.836</strong><span>waarnemingen</span></div><div><strong>315</strong><span>meetmomenten</span></div><div><strong>1.324</strong><span>productnamen</span></div><div><strong>22</strong><span>dagen</span></div></div>
+ <section class="case-copy"><h2>${escapeHtml(study.buildTitle)}</h2>${study.build.map(p=>`<p>${escapeHtml(p)}</p>`).join("")}<div class="article-tags">${study.stack.map(tag=>`<span class="article-tag">${escapeHtml(tag)}</span>`).join("")}</div></section>
+ <div class="case-screens"><figure><a href="${href("/images/appie/dashboard.webp")}"><img src="${href("/images/appie/dashboard.webp")}" alt="Appie Sniper-dashboard met winkelkeuze en een ranglijst van koopjes" loading="lazy"></a><figcaption>Het dashboard: aanbiedingen voor de gekozen winkel.</figcaption></figure><figure><a href="${href("/images/appie/verspakketten.webp")}"><img src="${href("/images/appie/verspakketten.webp")}" alt="Verspakketten met voorgestelde aanvullende ingrediënten in Appie Sniper" loading="lazy"></a><figcaption>Verspakketten met matches op basis van trefwoordregels.</figcaption></figure></div>
+ ${study.figures.map(f=>`<section class="case-figure"><div class="case-copy"><h2>${escapeHtml(f.title)}</h2><p>${escapeHtml(f.text)}</p></div><figure><a href="${href(`/images/appie/${f.image}.svg`)}" aria-label="Vergroot: ${escapeHtml(f.title)}"><img src="${href(`/images/appie/${f.image}.svg`)}" alt="${escapeHtml(f.alt)}" loading="lazy"></a><figcaption>Klik op de grafiek om deze te vergroten.</figcaption></figure></section>`).join("")}
+ <aside class="case-method"><h2>Over de data</h2><p>${escapeHtml(study.method)}</p><div class="case-links"><a class="underlined-link" href="${escapeHtml(study.sourceUrl)}">Code op GitHub ↗</a><a class="underlined-link" href="${escapeHtml(study.dataUrl)}">Bekijk de brondata ↗</a></div></aside>
+ </article></main>`,
 }));
 
 await writeRoute("/over", layout({

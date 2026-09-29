@@ -39,3 +39,7 @@ export const articles = managedArticles.filter(
   (article) => article.status === "published" || (article.status === "external" && Boolean(article.sourceUrl)),
 );
 export const notes = contentStore.notes;
+const cursorArticles = articles.filter(article => article.source === "Cursor");
+const dawArticles = articles.filter(article => article.source === "De AI Workshop");
+export const featuredArticles = Array.from({ length: 3 }, (_, index) => [dawArticles[index], cursorArticles[index]])
+  .flat().filter((article): article is Article => Boolean(article));

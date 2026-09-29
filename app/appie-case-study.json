@@ -1,0 +1,43 @@
+{
+  "title": "Wat verschijnt er in het afprijsrek?",
+  "intro": "Tijdreeksen hebben me altijd gefascineerd. Bij de Laatste Kans-koopjes van Albert Heijn vroeg ik me af: welke producten verschijnen hier eigenlijk, en zitten daar terugkerende patronen in? Die nieuwsgierigheid werd Appie Sniper: een eigen dashboard en een dataset om het aanbod door de tijd te volgen.",
+  "stack": [
+    "Python",
+    "Requests",
+    "GraphQL",
+    "Pandas",
+    "Flask & Jinja",
+    "GitHub Actions",
+    "CSV",
+    "Streamlit & Altair"
+  ],
+  "buildTitle": "Van losse aanbiedingen naar een tijdreeks",
+  "build": [
+    "Ik bouwde een Python-script dat via de GraphQL-interface van AH het lokale Laatste Kans-aanbod ophaalt. Met Pandas zet ik de geneste antwoorden om naar een tabel met productnaam, merk, categorie, prijzen, korting en voorraad. Iedere meting krijgt een tijdstempel en wordt toegevoegd aan een CSV-bestand.",
+    "GitHub Actions voert het script volgens een halfuurschema uit. De feitelijke meetmomenten zijn onregelmatiger. Voor AH Woenselse Markt in Eindhoven verzamelde ik van 4 tot en met 25 februari 2026 in totaal 72.836 waarnemingen: 315 momentopnames met 1.324 verschillende productnamen.",
+    "Daarnaast bouwde ik een webdashboard met Flask, Jinja, HTML en CSS. Daarin kun je een winkel kiezen en Laatste Kans-aanbiedingen naast Bonusacties bekijken. Het dashboard koppelt aanbiedingen op opgeschoonde productnamen, rekent mogelijke kortingscombinaties door en zoekt met trefwoordregels aanvullende ingrediënten bij verspakketten. Voor de historische data maakte ik ook een apart dashboard met Streamlit en Altair."
+  ],
+  "figures": [
+    {
+      "title": "Hoe beweegt het aanbod?",
+      "text": "Het aantal zichtbare productnamen loopt in de metingen uiteen van 74 tot 335. De grafiek laat zowel de middelste waarneming per dag als de spreiding zien. Zo wordt zichtbaar hoeveel een enkele blik op het aanbod kan missen.",
+      "image": "aanbod-door-de-tijd",
+      "alt": "Dagelijkse mediaan en minimum tot maximum van unieke productnamen per meetmoment, van 4 tot 25 februari 2026."
+    },
+    {
+      "title": "Welke categorieën duiken op?",
+      "text": "Groente en aardappelen vormen vaak de grootste groep. Andere categorieën veranderen opvallend: soepen, sauzen, kruiden en olie springen vanaf 9 februari omhoog. Dat is een patroon in het waargenomen aanbod; de oorzaak is uit deze data alleen niet vast te stellen.",
+      "image": "categorieen-per-dag",
+      "alt": "Heatmap van het gemiddelde aantal productnamen per meetmoment voor acht categorieën, uitgesplitst per dag."
+    },
+    {
+      "title": "Welke producten keren terug?",
+      "text": "Een product kan op veel dagen voorkomen en toch maar kort zichtbaar zijn. Focaccia mozzarella verschijnt op twintig van de tweeëntwintig dagen, maar meestal slechts tijdens een deel van de metingen. De magere rookworst is veel constanter aanwezig. Juist dat verschil maakt tijdreeksen voor mij interessant.",
+      "image": "terugkerende-producten",
+      "alt": "Heatmap van zeven geselecteerde productnamen: percentage meetmomenten per dag waarop elke naam voorkomt."
+    }
+  ],
+  "method": "Dit is een verkennende analyse van één winkel over 22 dagen. Een waarneming is geen verkoop. Productnamen worden per meetmoment één keer geteld; dezelfde naam kan verschillende verpakkingen of nieuwe voorraad betreffen. De meetfrequentie varieert en de eerste en laatste dag zijn onvolledig. Dagen volgen de opgeslagen tijdstempels, waarin geen tijdzone staat. Een structureel weekpatroon vraagt om een langere meetperiode.",
+  "sourceUrl": "https://github.com/Wobknaap/Appie-App",
+  "dataUrl": "https://github.com/Wobknaap/Appie-App/blob/39b65f83db54ff937c0d43aed3a48950eca76e7e/laatste_kans_trends.csv"
+}

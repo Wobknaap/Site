@@ -1,0 +1,175 @@
+{
+  "sourceCommit": "39b65f83db54ff937c0d43aed3a48950eca76e7e",
+  "rows": 72836,
+  "snapshots": 315,
+  "days": 22,
+  "productNames": 1324,
+  "minPerSnapshot": 74,
+  "maxPerSnapshot": 335,
+  "medianPerSnapshot": 229.0,
+  "daily": [
+    {
+      "date": "2026-02-04",
+      "median": 252.0,
+      "min": 194.0,
+      "max": 282.0,
+      "count": 5.0
+    },
+    {
+      "date": "2026-02-05",
+      "median": 210.0,
+      "min": 174.0,
+      "max": 261.0,
+      "count": 14.0
+    },
+    {
+      "date": "2026-02-06",
+      "median": 206.0,
+      "min": 179.0,
+      "max": 240.0,
+      "count": 14.0
+    },
+    {
+      "date": "2026-02-07",
+      "median": 181.0,
+      "min": 74.0,
+      "max": 256.0,
+      "count": 21.0
+    },
+    {
+      "date": "2026-02-08",
+      "median": 197.0,
+      "min": 117.0,
+      "max": 211.0,
+      "count": 21.0
+    },
+    {
+      "date": "2026-02-09",
+      "median": 233.0,
+      "min": 216.0,
+      "max": 256.0,
+      "count": 12.0
+    },
+    {
+      "date": "2026-02-10",
+      "median": 206.0,
+      "min": 160.0,
+      "max": 299.0,
+      "count": 11.0
+    },
+    {
+      "date": "2026-02-11",
+      "median": 243.5,
+      "min": 172.0,
+      "max": 333.0,
+      "count": 12.0
+    },
+    {
+      "date": "2026-02-12",
+      "median": 252.5,
+      "min": 189.0,
+      "max": 299.0,
+      "count": 12.0
+    },
+    {
+      "date": "2026-02-13",
+      "median": 244.0,
+      "min": 204.0,
+      "max": 292.0,
+      "count": 14.0
+    },
+    {
+      "date": "2026-02-14",
+      "median": 203.0,
+      "min": 144.0,
+      "max": 291.0,
+      "count": 21.0
+    },
+    {
+      "date": "2026-02-15",
+      "median": 248.0,
+      "min": 218.0,
+      "max": 330.0,
+      "count": 19.0
+    },
+    {
+      "date": "2026-02-16",
+      "median": 251.5,
+      "min": 225.0,
+      "max": 314.0,
+      "count": 14.0
+    },
+    {
+      "date": "2026-02-17",
+      "median": 258.0,
+      "min": 238.0,
+      "max": 281.0,
+      "count": 13.0
+    },
+    {
+      "date": "2026-02-18",
+      "median": 236.0,
+      "min": 205.0,
+      "max": 312.0,
+      "count": 13.0
+    },
+    {
+      "date": "2026-02-19",
+      "median": 268.0,
+      "min": 229.0,
+      "max": 335.0,
+      "count": 14.0
+    },
+    {
+      "date": "2026-02-20",
+      "median": 264.5,
+      "min": 138.0,
+      "max": 325.0,
+      "count": 14.0
+    },
+    {
+      "date": "2026-02-21",
+      "median": 232.0,
+      "min": 211.0,
+      "max": 299.0,
+      "count": 23.0
+    },
+    {
+      "date": "2026-02-22",
+      "median": 241.0,
+      "min": 151.0,
+      "max": 326.0,
+      "count": 21.0
+    },
+    {
+      "date": "2026-02-23",
+      "median": 206.0,
+      "min": 166.0,
+      "max": 229.0,
+      "count": 13.0
+    },
+    {
+      "date": "2026-02-24",
+      "median": 191.5,
+      "min": 93.0,
+      "max": 227.0,
+      "count": 12.0
+    },
+    {
+      "date": "2026-02-25",
+      "median": 162.0,
+      "min": 161.0,
+      "max": 163.0,
+      "count": 2.0
+    }
+  ],
+  "selectedProducts": [
+    "AH Rookworst mager",
+    "AH Focaccia mozzarella",
+    "AH Rode druiven pitloos",
+    "AH Hutspot",
+    "AH Terra Biologische gerookte tofu",
+    "AH Lasagne verspakket",
+    "AH Pastel de nata"
+  ]
+}
