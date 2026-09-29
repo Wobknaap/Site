@@ -142,7 +142,7 @@ await writeRoute("/artikelen", layout({
   title: "Artikelen · Wob Knaap",
   description: "Columns, essays en analyses over technologie, onderwijs, beleid, studentenleven en andere onderwerpen.",
   active: "artikelen",
-  body: `<main id="top"><header class="page-intro page-wrap"><p class="eyebrow">Archief · ${articles.length} publicaties</p><h1>Artikelen</h1><p>Artikelen over technologie, onderwijs, beleid, studentenleven en Eindhoven.</p></header><figure class="wide-image page-wrap"><img src="${href("/images/letterstenen-banner.webp")}" alt="Groene letterstenen met losse letters in een raster"><figcaption>Groene letterstenen</figcaption></figure><section class="archive-page page-wrap">${articleList(articles)}</section></main>`,
+  body: `<main id="top"><header class="page-intro page-wrap"><p class="eyebrow">Archief · ${articles.length} publicaties</p><h1>Artikelen</h1><p>Artikelen over technologie, onderwijs, beleid, studentenleven en Eindhoven.</p></header><section class="archive-page page-wrap">${articleList(articles)}</section></main>`,
 }));
 
 await writeRoute("/projecten", layout({
