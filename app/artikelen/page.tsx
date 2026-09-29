@@ -13,7 +13,7 @@ export default function ArticlesPage() {
     <main id="top">
       <SiteHeader active="artikelen" />
       <header className="page-intro page-wrap">
-        <p className="eyebrow">Archief · {articles.length} publicaties</p>
+        <p className="eyebrow archive-eyebrow">Archief · {articles.length} publicaties</p>
         <h1 className="handwritten-heading archive-handwritten-heading"><img className="torn-paper" src="/images/nav-artikelen.webp" alt="Artikelen" /></h1>
         <p>Artikelen over technologie, onderwijs, beleid, studentenleven en Eindhoven.</p>
       </header>
