@@ -25,7 +25,8 @@ img { display: block; width: 100%; }
 
 main#top { position: relative; isolation: isolate; width: min(1320px, calc(100% - 32px)); margin: 24px auto 30px; }
 /* Keep the torn top and bottom at a fixed height as content grows. */
-main#top::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; border-style: solid; border-width: 160px 90px 135px; border-image: url("/images/torn-content-sheet.webp") 190 110 160 fill / 160px 90px 135px / 0 stretch; }
+main#top::before { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; border-style: solid; border-width: 160px 90px 135px; border-image: url("/images/torn-content-sheet.webp") 190 110 160 fill / 160px 90px 135px / 0 stretch; }
+main#top > * { position: relative; z-index: 1; }
 main#top .page-wrap { width: min(1100px, calc(100% - 120px)); }
 
 .page-wrap { width: min(1180px, calc(100% - 64px)); margin-inline: auto; }
