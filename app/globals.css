@@ -22,13 +22,13 @@ img { display: block; width: 100%; }
 .site-header { height: 76px; width: min(1180px, calc(100% - 64px)); margin-inline: auto; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--line); }
 .wordmark { display: flex; align-items: center; flex: 0 0 auto; width: 180px; }
 .wordmark img { width: 100%; height: auto; }
-.site-header nav { display: flex; align-items: center; gap: 12px; }
-.site-header nav a { position: relative; display: block; flex: 0 0 126px; height: 44px; overflow: hidden; clip-path: polygon(0 8%, 5% 4%, 10% 7%, 15% 2%, 21% 6%, 27% 3%, 33% 7%, 39% 2%, 46% 6%, 53% 3%, 60% 7%, 67% 2%, 74% 6%, 81% 3%, 88% 7%, 94% 3%, 100% 8%, 98% 17%, 100% 27%, 97% 37%, 100% 48%, 97% 58%, 100% 69%, 96% 78%, 99% 89%, 93% 96%, 86% 93%, 79% 98%, 71% 94%, 64% 98%, 56% 94%, 48% 99%, 40% 94%, 32% 98%, 24% 94%, 16% 99%, 9% 94%, 2% 98%, 4% 87%, 1% 77%, 4% 66%, 1% 55%, 4% 44%, 1% 33%, 4% 22%); filter: drop-shadow(1px 4px 3px rgba(20, 27, 21, .3)); transform: rotate(-1deg); transition: transform .18s ease, filter .18s ease; }
+.site-header nav { display: flex; align-items: center; gap: 14px; }
+.site-header nav a { position: relative; display: block; flex: 0 0 138px; height: 48px; padding: 3px; overflow: hidden; background: #fffefa; border: 1px solid rgba(23, 36, 27, .48); clip-path: polygon(0 13%, 5% 8%, 10% 12%, 16% 4%, 21% 9%, 27% 6%, 34% 14%, 41% 7%, 48% 11%, 55% 4%, 63% 8%, 71% 3%, 79% 10%, 87% 5%, 95% 11%, 100% 7%, 97% 20%, 100% 29%, 96% 37%, 99% 45%, 96% 53%, 100% 64%, 96% 73%, 99% 84%, 94% 91%, 87% 88%, 80% 95%, 73% 90%, 66% 98%, 59% 91%, 52% 96%, 44% 90%, 37% 97%, 29% 92%, 21% 99%, 14% 91%, 7% 96%, 2% 90%, 4% 80%, 1% 69%, 5% 60%, 2% 49%, 5% 39%, 1% 29%, 4% 20%); filter: drop-shadow(0 4px 4px rgba(20, 27, 21, .36)); transform: rotate(-1deg); transition: filter .18s ease; }
 .site-header nav a:nth-child(2) { transform: rotate(1.2deg); }
 .site-header nav a:nth-child(3) { transform: rotate(-.5deg); }
 .site-header nav a:nth-child(4) { transform: rotate(1deg); }
-.site-header nav a img { width: 100%; height: 100%; object-fit: cover; }
-.site-header nav a:hover, .site-header nav a.active { transform: translateY(-2px) rotate(0) scale(1.04); filter: drop-shadow(1px 6px 4px rgba(20, 27, 21, .38)); }
+.site-header nav a img { display: block; width: 100%; height: 100%; object-fit: cover; mix-blend-mode: multiply; }
+.site-header nav a:hover { filter: drop-shadow(0 7px 6px rgba(20, 27, 21, .48)); }
 
 .terminal-banner { height: clamp(190px, 20vw, 270px); overflow: hidden; background: #0d180d; }
 .terminal-banner > img { height: 100%; object-fit: cover; }
