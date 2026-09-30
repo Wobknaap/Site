@@ -376,3 +376,29 @@ figcaption { display: flex; justify-content: space-between; gap: 18px; margin-to
 
 .projects-intro { grid-template-columns: 1fr; }
 .projects-intro h1 { grid-column: 1 / -1; }
+
+/* Thin blue paper backing for navigation, directory buttons and page labels. */
+:root { --paper-cut: polygon(0 13%, 5% 8%, 10% 12%, 16% 4%, 21% 9%, 27% 6%, 34% 14%, 41% 7%, 48% 11%, 55% 4%, 63% 8%, 71% 3%, 79% 10%, 87% 5%, 95% 11%, 100% 7%, 97% 20%, 100% 29%, 96% 37%, 99% 45%, 96% 53%, 100% 64%, 96% 73%, 99% 84%, 94% 91%, 87% 88%, 80% 95%, 73% 90%, 66% 98%, 59% 91%, 52% 96%, 44% 90%, 37% 97%, 29% 92%, 21% 99%, 14% 91%, 7% 96%, 2% 90%, 4% 80%, 1% 69%, 5% 60%, 2% 49%, 5% 39%, 1% 29%, 4% 20%); --paper-backing: #345681; }
+.site-header nav a, .home-directory a, .handwritten-heading {
+  position: relative; isolation: isolate; overflow: visible;
+  filter: drop-shadow(0 3px 3px rgba(27, 39, 64, .22));
+}
+.site-header nav a { background: transparent; border: 0; clip-path: none; padding: 0; }
+.home-directory a { width: fit-content; max-width: 100%; justify-self: center; transition: transform .2s ease; }
+.handwritten-heading { width: fit-content; max-width: 100%; }
+.site-header nav a::before, .home-directory a::before, .handwritten-heading::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: var(--paper-backing); clip-path: var(--paper-cut);
+  transform: translate(3px, 3px); pointer-events: none;
+}
+.site-header nav a::before { transform: translate(2px, 2px); }
+.site-header nav a img, .home-directory img, .handwritten-heading img {
+  position: relative; background: #fff; border: 0; clip-path: var(--paper-cut);
+  filter: none; mix-blend-mode: normal;
+}
+.home-directory a:hover { transform: translateY(-3px); }
+.home-directory a:hover img { transform: none; filter: none; }
+.site-header nav a:focus-visible, .home-directory a:focus-visible { outline: 2px solid var(--paper-backing); outline-offset: 7px; }
+@media (max-width: 650px) {
+  .home-directory a::before, .handwritten-heading::before { transform: translate(2px, 2px); }
+}

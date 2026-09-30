@@ -71,7 +71,7 @@ function layout({ title, description, active, body, embedPdf = false }) {
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self'; font-src 'self'; object-src ${embedPdf ? "'self'" : "'none'"}; base-uri 'none'; form-action 'none'; connect-src 'none'; frame-src ${embedPdf ? "'self'" : "'none'"}; script-src 'none'">
   <title>${escapeHtml(title)}</title>
   <link rel="icon" href="${href("/favicon.svg")}">
-  <link rel="stylesheet" href="${href("/assets/site-v22.css")}">
+  <link rel="stylesheet" href="${href("/assets/site-v23.css")}">
 </head>
 <body>${header(active)}${body}${footer()}</body>
 </html>`;
@@ -121,7 +121,7 @@ const staticCss = sourceCss
   .replaceAll("var(--font-geist-sans)", "Arial, sans-serif")
   .replaceAll("var(--font-geist-mono)", '"Courier New", monospace')
   .replaceAll('url("/images/', 'url("../images/');
-await writeFile(path.join(outputRoot, "assets/site-v22.css"), staticCss);
+await writeFile(path.join(outputRoot, "assets/site-v23.css"), staticCss);
 await writeFile(path.join(outputRoot, ".nojekyll"), "");
 await writeFile(path.join(outputRoot, "robots.txt"), `User-agent: *\nAllow: ${href("/")}\nDisallow: ${href("/beheer/")}\n`);
 
@@ -173,7 +173,7 @@ await writeRoute("/over", layout({
   title: "Over mij · Wob Knaap",
   description: "Wob Knaap studeert Data Science aan de TU/e, schrijft voor Cursor en geeft AI-workshops.",
   active: "over",
-  body: `<main id="top"><section class="about-page page-wrap"><div class="about-copy"><h1 class="handwritten-heading"><img class="torn-paper" src="${href("/images/nav-over-mij.webp")}" alt="Over mij"></h1><div class="prose"><p>Ik studeer Data Science aan de TU/e. Sinds 2024 schrijf ik columns voor Cursor over studentenleven, onderwijs, technologie en Eindhoven.</p><p>Op deze site houd ik mijn columns en langere artikelen bij, waaronder mijn stukken voor De AI Workshop.</p><p>Daarnaast ontwikkel en geef ik AI-workshops voor bedrijven, overheden en onderwijsinstellingen.</p></div></div><figure><img src="${href("/images/wob-knaap.jpg")}" alt="Portret van Wob Knaap"><figcaption>Wob Knaap · 2024</figcaption></figure></section></main>`,
+  body: `<main id="top"><section class="about-page page-wrap"><div class="about-copy"><h1 class="handwritten-heading"><img class="torn-paper" src="${href("/images/nav-over-mij.webp")}" alt="Over mij"></h1><div class="prose"><p>Ik studeer Data Science aan de TU/e. Sinds 2024 schrijf ik columns voor Cursor over studentenleven, onderwijs, technologie en Eindhoven.</p><p>Op deze site houd ik mijn columns en langere artikelen bij, waaronder mijn stukken voor <a href="https://deaiworkshop.nl/">De AI Workshop</a>.</p><p>Daarnaast ontwikkel en geef ik AI-workshops voor bedrijven, overheden en onderwijsinstellingen.</p></div></div><figure><img src="${href("/images/wob-knaap.jpg")}" alt="Portret van Wob Knaap"><figcaption>Wob Knaap · 2024</figcaption></figure></section></main>`,
 }));
 
 for (const article of articles.filter((item) => item.status === "published")) {
