@@ -71,7 +71,7 @@ function layout({ title, description, active, body, embedPdf = false }) {
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self'; font-src 'self'; object-src ${embedPdf ? "'self'" : "'none'"}; base-uri 'none'; form-action 'none'; connect-src 'none'; frame-src ${embedPdf ? "'self'" : "'none'"}; script-src 'none'">
   <title>${escapeHtml(title)}</title>
   <link rel="icon" href="${href("/favicon.svg")}">
-  <link rel="stylesheet" href="${href("/assets/site-v23.css")}">
+  <link rel="stylesheet" href="${href("/assets/site-v24.css")}">
 </head>
 <body>${header(active)}${body}${footer()}</body>
 </html>`;
@@ -121,7 +121,7 @@ const staticCss = sourceCss
   .replaceAll("var(--font-geist-sans)", "Arial, sans-serif")
   .replaceAll("var(--font-geist-mono)", '"Courier New", monospace')
   .replaceAll('url("/images/', 'url("../images/');
-await writeFile(path.join(outputRoot, "assets/site-v23.css"), staticCss);
+await writeFile(path.join(outputRoot, "assets/site-v24.css"), staticCss);
 await writeFile(path.join(outputRoot, ".nojekyll"), "");
 await writeFile(path.join(outputRoot, "robots.txt"), `User-agent: *\nAllow: ${href("/")}\nDisallow: ${href("/beheer/")}\n`);
 
@@ -143,7 +143,7 @@ await writeRoute("/projecten", layout({
   title: "Persoonlijke projecten · Wob Knaap",
   description: "Eigen projecten en onderzoek met data, taal en technologie.",
   active: "projecten",
-  body: `<main id="top"><header class="page-intro projects-intro page-wrap"><p class="eyebrow">Data · taal · technologie</p><h1 class="handwritten-heading projects-handwritten-heading"><img class="torn-paper" src="${href("/images/nav-projecten.webp")}" alt="Persoonlijke projecten"></h1></header><section class="project-grid page-wrap" aria-label="Projecten">${projects.map(project => `<article class="project-card"><p class="eyebrow">${escapeHtml(project.category)}</p><h2><a href="${escapeHtml(project.href.startsWith("https:") ? project.href : href(project.href + "/"))}">${handwrittenTitle(project.title, projectTitleImages[project.href])}</a></h2><p>${escapeHtml(project.description)}</p><div class="article-tags">${project.tags.map(tag => `<span class="article-tag">${escapeHtml(tag)}</span>`).join("")}</div><a class="underlined-link archive-link" href="${escapeHtml(project.href.startsWith("https:") ? project.href : href(project.href + "/"))}">${project.href.startsWith("https:") ? "Bekijk op GitHub ↗" : "Bekijk het project ↗"}</a></article>`).join("")}</section></main>`,
+  body: `<main id="top"><header class="page-intro projects-intro page-wrap"><h1 class="handwritten-heading projects-handwritten-heading"><img class="torn-paper" src="${href("/images/nav-projecten.webp")}" alt="Persoonlijke projecten"></h1></header><section class="project-grid page-wrap" aria-label="Projecten">${projects.map(project => `<article class="project-card"><h2><a href="${escapeHtml(project.href.startsWith("https:") ? project.href : href(project.href + "/"))}">${handwrittenTitle(project.title, projectTitleImages[project.href])}</a></h2><p>${escapeHtml(project.description)}</p><div class="article-tags">${project.tags.map(tag => `<span class="article-tag">${escapeHtml(tag)}</span>`).join("")}</div><a class="underlined-link archive-link" href="${escapeHtml(project.href.startsWith("https:") ? project.href : href(project.href + "/"))}">${project.href.startsWith("https:") ? "Bekijk op GitHub ↗" : "Bekijk het project ↗"}</a></article>`).join("")}</section></main>`,
 }));
 
 await writeRoute("/projecten/appie-sniper", layout({

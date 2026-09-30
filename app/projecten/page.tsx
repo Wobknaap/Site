@@ -12,12 +12,10 @@ export default function ProjectsPage() {
   return <main id="top">
     <SiteHeader active="projecten" />
     <header className="page-intro projects-intro page-wrap">
-      <p className="eyebrow">Data · taal · technologie</p>
       <h1 className="handwritten-heading projects-handwritten-heading"><img className="torn-paper" src="/images/nav-projecten.webp" alt="Persoonlijke projecten" /></h1>
     </header>
     <section className="project-grid page-wrap" aria-label="Projecten">
       {projects.map((project) => <article className="project-card" key={project.title}>
-        <p className="eyebrow">{project.category}</p>
         <h2><a href={project.href}><ProjectTitle project={project} /></a></h2>
         <p>{project.description}</p>
         <div className="article-tags">{project.tags.map(tag => <span className="article-tag" key={tag}>{tag}</span>)}</div>

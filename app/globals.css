@@ -402,3 +402,11 @@ figcaption { display: flex; justify-content: space-between; gap: 18px; margin-to
 @media (max-width: 650px) {
   .home-directory a::before, .handwritten-heading::before { transform: translate(2px, 2px); }
 }
+
+/* Soft blue depth instead of a solid, sharply cut backing. */
+.site-header nav a, .home-directory a, .handwritten-heading {
+  filter: drop-shadow(0 4px 3px rgba(52, 86, 129, .38)) drop-shadow(0 9px 9px rgba(27, 39, 64, .20));
+}
+.site-header nav a::before, .home-directory a::before, .handwritten-heading::before { content: none; }
+.site-header nav a { filter: drop-shadow(0 2px 2px rgba(52, 86, 129, .35)) drop-shadow(0 5px 5px rgba(27, 39, 64, .18)); }
+.site-header nav a:hover { filter: drop-shadow(0 3px 3px rgba(52, 86, 129, .38)) drop-shadow(0 8px 7px rgba(27, 39, 64, .22)); }
